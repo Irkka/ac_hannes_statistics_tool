@@ -6,7 +6,7 @@ for($i = 0; $i < $players; ++$i) {
     $arnd = rand(0,sizeof($adj_array)-1);
     $nrnd = rand(0,sizeof($noun_array)-1);
     $wuname = "$adj_array[$arnd] $noun_array[$nrnd]";
-print($adj_array[$arnd], $noun_array[$nrnd]);
+print($adj_array[$arnd] . " " . $noun_array[$nrnd]);
     $db->query("INSERT INTO player (last_name, first_name, player_number) VALUES ($adj_array[$arnd], $noun_array[$nrnd], rand(0-79))");
 }
 $db->query("insert into player (last_name, first_name, player_number, description) VALUES ('Hakkarainen', 'Ilkka', 7, 'ACH MVP')");
