@@ -30,7 +30,7 @@ CREATE TABLE match (
 match_id SERIAL PRIMARY KEY,
 opponent_id INTEGER REFERENCES opponent,
 field_id INTEGER REFERENCES field,
-date DATE NOT NULL, --default today() tjsp
+date DATE NOT NULL DEFAULT CURRENT_DATE, --default today() tjsp
 result RESULT NOT NULL,
 opponent_goals INTEGER NOT NULL CONSTRAINT positive_goal_amount CHECK (opponent_goals >= 0)
 );
