@@ -2,23 +2,26 @@
 include 'templates/upper.html';
 //$default_query="SELECT (player_number, last_name, (select count(*) FROM statistics_event WHERE item_id=1 AND player_id=1)) FROM player WHERE player_id=1";
 include('db/connect_db.php');
-$query = $db->prepare("SELECT player_number, last_name, first_name, (SELECT COUNT(*) FROM statistics_event WHERE item_id = :item_id AND player.player_id = statistics_event.player_id) FROM player ORDER BY player_number");
+$query = $db->prepare("SELECT player_number, last_name, first_name, (SELECT COUNT(*) FROM statistics_event WHERE item_id = :item_id AND player.player_id = statistics_event.player_id) AS stats FROM player ORDER BY player_number DESC");
+
 $query->bindParam(':item_id', $item_id);
 $query->bindParam(':player_number', $player_number);
 $query->bindParam(':last_name', $last_name);
 $query->bindParam(':first_name', $first_name);
 $query->bindParam(':where', $where);
+$query->bindParam(':order', $order);
 
-//Näihin voi laittaa kyselyt WHERE item_id on dropboxissa olevan itemin nimi
-$item_id = 1;
+$item_id = '1';
 $player_number = '';
 $last_name = '';
 $first_name = '';
 $where = '';
+$order = 'player_number'; //jostain syystä kyselyyn ei tulostu oikeaa
+//Näihin voi laittaa kyselyt WHERE item_id on dropboxissa olevan itemin nimi
 ?>
 <table>
 <?php
-//var_dump($query);
+var_dump($query);
 $query->execute();
 $result = $query->fetchAll();
 //var_dump($result);
@@ -28,7 +31,7 @@ foreach($result as $row) {
     print('<td>' . $row['player_number'] . '</td>');
     print('<td>' . $row['last_name'] . '</td>');
     print('<td>' . $row['first_name'] . '</td>');
-    print('<td>' . $row[3] . '</td>');
+    print('<td>' . $row['stats'] . '</td>');
     print('</tr>');
 }
 
