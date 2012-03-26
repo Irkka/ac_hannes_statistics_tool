@@ -37,6 +37,20 @@ foreach($result as $row) {
 
 ?>
 </table>
+<form>
+    <select name="order">
+        <?php
+            $stat_items = $db->prepare("SELECT * FROM statistics_item");
+            $stat_items.execute();
+            $result = $stat_items.fetchAll();
+            foreach($result as $row) {
+                print("<option value=" . $row['item_id'] . ">");
+                print($row['name']);
+                print("</option>");
+            }
+        ?>
+    </select>
+</form>
 <?php
 include('db/close_db.php');
 include 'templates/lower.html';
