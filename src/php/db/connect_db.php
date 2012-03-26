@@ -2,7 +2,7 @@
 try {
 $user='ilkkahak';
 $pass='mestaruus'; //supply password here
-$db=new PDO('pgsql:host=localhost;dbname=ach;', $user, $pass);
+$db=new PDO('pgsql:host=localhost;dbname=ilkkahak;', $user, $pass);
 /*	foreach($db->query('SELECT * FROM player') as $row) {
 		print_r($row);
 	}
