@@ -3,7 +3,9 @@ include ('templates/upper.html');
 include('db/connect_db.php');
 ?>
 <a href="index.php">etusivu</a>
+<div id="update">
 <form name=modify action="update.php" method="post">
+    <div id="players">
 	<?php
             $players = $db->prepare("SELECT * FROM player");
             $players->execute();
@@ -14,6 +16,7 @@ include('db/connect_db.php');
                 print('</input>');
             }
 	?>
+    </div>
     <select name="item">
         <?php
             $stat_items = $db->prepare("SELECT * FROM statistics_item");
@@ -49,11 +52,30 @@ include('db/connect_db.php');
 	<input type="submit" name="add" value="Lisää"/>
 	<input type="submit" name="delete" value="Vähennä" />
 </form>
+</div>
+<div id="dbmod">
 <form name="add_item" action="update.php" method="post">
-    <input type="text" name="item_name"/>
-    <input type="submit" name="commit_item" value="Lisää Tilastoitava Asia">
+    <input type="text" name="item_name">Tilastokappaleen Nimi</input>
+    <input type="submit" name="commit_item" value="Lisää Uusi Tilastoitava Asia">
 </form>
-
+<form name="add_field" action="update.php" method="post">
+    <input type="text" name="field_name">Kentän Nimi</input>
+    <input type="submit" name="commit_field" value="Lisää Uusi Kenttä">
+</form>
+<form name="add_player" action="update.php" method="post">
+    <input type="text" name="last_name">Sukunimi</input>
+    <input type="text" name="first_name">Etunimi</input>
+    <input type="text" name="player_number">Pelinumero</input>
+    <input type="text" name="picture_path">Kuvapolku</input>
+    <textarea name="description">Kuvailu</textarea>
+    <input type="checkbox" name="active">Aktiivinen?</input
+    <input type="submit" name="commit_player" value="Lisää Uusi Pelaaja">
+</form>
+<form name="add_opponent" action="update.php" method="post">
+    <input type="text" name="opponent_name">Vastustajan Nimi</input>
+    <input type="submit" name="commit_opponent" value="Lisää Uusi Vastustaja">
+</form>
+</div>
 <?php
 if($_POST['add'] && $_POST['players'] != null) {
     $players = $_POST['players']; // tämä ei näy arrayna!!!
@@ -109,11 +131,40 @@ if($_POST['commit_item'] && $_POST['item_name'] != null && trim($_POST['item_nam
     $add = $db->prepare("INSERT INTO statistics_item (name) VALUES $item_name");
     var_dump($add);
     if($add->execute())
-        print("Item added!");
+        print("item added!");
     else
-        print("FAILED");
+        print("failed");
+}
+/* VAATII useampia kenttiä
+if($_POST['commit_player'] && $_POST['player_name'] != null && trim($_POST['player_name'] != "")) {
+    $item_name = "('" . trim($_POST['player_name']) . "')";
+    $add = $db->prepare("INSERT INTO player (name) VALUES $item_name");
+    var_dump($add);
+    if($add->execute())
+        print("player added!");
+    else
+        print("failed");
+}
+*/
+if($_POST['commit_field'] && $_POST['field_name'] != null && trim($_POST['field_name'] != "")) {
+    $field_name = "('" . trim($_POST['field_name']) . "')";
+    $add = $db->prepare("INSERT INTO field (name) values $field_name");
+    var_dump($add);
+    if($add->execute())
+        print("field added!");
+    else
+        print("failed");
 }
 
+if($_POST['commit_opponent'] && $_POST['opponent_name'] != null && trim($_POST['opponent_name'] != "")) {
+    $opponent_name = "('" . trim($_POST['opponent_name']) . "')";
+    $add = $db->prepare("INSERT INTO opponent (name) VALUES $opponent_name");
+    var_dump($add);
+    if($add->execute())
+        print("opponent added!");
+    else
+        print("failed");
+}
 include('db/close_db.php');
 include('templates/lower.html');
 ?>

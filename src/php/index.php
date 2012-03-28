@@ -8,6 +8,8 @@ else
 	$item_id = $_POST['item'];
 //Näihin voi laittaa kyselyt WHERE item_id on dropboxissa olevan itemin nimi
 ?>
+<a href="./update.php">update</a>
+<div id="stat_table">
 <table>
 <?php
 /**
@@ -19,27 +21,78 @@ if($_POST['order'] && $_POST['order'] != "stats")
     $order = $_POST['order'];
 if($_POST['direction'])
     $direction = "ASC";
-$where = "";
+$where = "player.active != false"; //jos joku ei halua näkyä enää tilastoissa
 /**
  * Tietyn pelaajan tilastojen haku
  */
 if($_POST['player'] != "all" && $_POST['player'] != null) {
-    $where = "WHERE ";
-    $where .= $_POST['player'] . " = player_id";
+    $where .= " AND " . $_POST['player'] . " = player_id";
 }
+
+if($where != "") {
+    $where = "WHERE " . $where;
+}
+
 /**
  * Tietyn ottelun tilastojen haku
  */
 $match = "";
 if($_POST['match'] && $_POST['match'] != "all") {
-    $match = "AND match_id = " . $_POST['match'];
+    $match .= "AND match_id = " . $_POST['match'];
 }
 
-$query = $db->prepare("SELECT player_number, last_name, first_name, (SELECT COUNT(*) FROM statistics_event WHERE item_id = :item_id AND player.player_id = statistics_event.player_id $match) AS stats FROM player $where ORDER BY $order $direction");
+if($_POST['field'] && $_POST['field'] != "all") {
+    $field = $_POST['field'];
+    $match_count = $db->prepare("SELECT * FROM match WHERE field_id = $field");
+    $match_count->execute();
+    $result = $match_count->fetchAll();
+    $first = true;
+    if(!empty($result)) {
+    foreach($result as $row) {
+        if($first) {
+            $match .= "AND (match_id = " . $row['match_id'];
+            $first = false;
+        }
+        $match .= " OR match_id = " . $row['match_id'];
+    }
+    $match .= ")";
+    }
+    else { //kentällä ei olla vielä pelattu
+       $match = "AND match_id = 999";
+    }
+}
+
+if($_POST['opponent'] && $_POST['opponent'] != "all") {
+    $opponent = $_POST['opponent'];
+    $match_count = $db->prepare("SELECT * FROM match WHERE opponent_id = $opponent");
+    $match_count->execute();
+    $result = $match_count->fetchAll();
+    $first = true;
+    if(!empty($result)) {
+        foreach($result as $row) {
+            if($first) {
+                $match .= "AND (match_id = " . $row['match_id'];
+                $first = false;
+            }
+            $match .= " OR match_id = " . $row['match_id'];
+        }
+        $match .= ")";
+    }
+    else { //vastustajaa vastaan ei olla vielä pelattu
+        $match = "AND match_id = 999";
+    }
+}
+$query = $db->prepare("SELECT player_number AS pelaajanumero, last_name AS sukunimi, first_name AS etunimi, (SELECT COUNT(*) FROM statistics_event WHERE item_id = :item_id AND player.player_id = statistics_event.player_id $match) AS stats FROM player $where ORDER BY $order $direction");
 $query->bindParam(':item_id', $item_id);
 $query->execute();
 $result = $query->fetchAll();
 
+$header = array_unique(array_keys($result[0]));
+foreach($header as $aux) {
+    if(is_numeric($aux))
+        continue;
+    print('<th>' . $aux . '</th>');
+}
 foreach($result as $row) {
     print('<tr>');
     $row = array_unique($row);
@@ -58,6 +111,8 @@ foreach($result as $row) {
 
 ?>
 </table>
+</div>
+<div id="filter">
 <form action="index.php" method="post">
 	<select name="player">
 		<option value="all">Kaikki Pelaajat</option>
@@ -140,7 +195,8 @@ foreach($result as $row) {
     <input type="checkbox" name="direction">Nouseva järjestys</input>
     <input type="submit" value="Suorita kysely"/>
 </form>
-<a href="./update.php">update</a>
+</div>
+
 <?php
 include('db/close_db.php');
 include 'templates/lower.html';
