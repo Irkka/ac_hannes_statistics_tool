@@ -65,11 +65,19 @@ include('db/connect_db.php');
 <form name="add_player" action="update.php" method="post">
     <input type="text" name="last_name">Sukunimi</input>
     <input type="text" name="first_name">Etunimi</input>
-    <input type="text" name="player_number">Pelinumero</input>
+    <select name="player_number">
+	<?php
+		for($i = 1; $i < 100; $i++) {
+			print('<option value=' . $i . '>');
+			print($i);
+			print('</option>');
+		}
+	?>
+    </select>
     <input type="text" name="picture_path">Kuvapolku</input>
-    <textarea name="description">Kuvailu</textarea>
-    <input type="checkbox" name="active">Aktiivinen?</input
-    <input type="submit" name="commit_player" value="Lisää Uusi Pelaaja">
+    <textarea name="description"></textarea>
+    <input type="checkbox" name="active">Aktiivinen?</input>
+    <input type="submit" name="commit_player" value="Lisää Uusi Pelaaja" />
 </form>
 <form name="add_opponent" action="update.php" method="post">
     <input type="text" name="opponent_name">Vastustajan Nimi</input>
@@ -78,7 +86,7 @@ include('db/connect_db.php');
 </div>
 <?php
 if($_POST['add'] && $_POST['players'] != null) {
-    $players = $_POST['players']; // tämä ei näy arrayna!!!
+    $players = $_POST['players'];
     $values = '';
     $first = true;
     foreach($players as $aux) {
@@ -135,17 +143,20 @@ if($_POST['commit_item'] && $_POST['item_name'] != null && trim($_POST['item_nam
     else
         print("failed");
 }
-/* VAATII useampia kenttiä
-if($_POST['commit_player'] && $_POST['player_name'] != null && trim($_POST['player_name'] != "")) {
-    $item_name = "('" . trim($_POST['player_name']) . "')";
-    $add = $db->prepare("INSERT INTO player (name) VALUES $item_name");
+
+if($_POST['commit_player'] && $_POST['last_name'] != null && trim($_POST['last_name'] != "")) {
+    $last_name = "'" . trim($_POST['last_name']) . "'";
+    $first_name = "'" . trim($_POST['first_name']) . "'";
+    $player_number = $_POST['player_number'];
+var_dump($player_number);
+    $add = $db->prepare("INSERT INTO player (last_name, first_name, player_number) VALUES ($last_name, $first_name, $player_number)");
     var_dump($add);
     if($add->execute())
         print("player added!");
     else
         print("failed");
 }
-*/
+
 if($_POST['commit_field'] && $_POST['field_name'] != null && trim($_POST['field_name'] != "")) {
     $field_name = "('" . trim($_POST['field_name']) . "')";
     $add = $db->prepare("INSERT INTO field (name) values $field_name");
