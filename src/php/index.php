@@ -2,10 +2,6 @@
 include 'templates/upper.html';
 include('db/connect_db.php');
 
-if(empty($_POST))
-	$item_id = '1';
-else
-	$item_id = $_POST['item'];
 //Näihin voi laittaa kyselyt WHERE item_id on dropboxissa olevan itemin nimi
 ?>
 <a href="./update.php">update</a>
@@ -15,10 +11,11 @@ else
 /**
  * Järjestys
  */
-$order = "stats";
 $direction = "DESC";
-if($_POST['order'] && $_POST['order'] != "stats")
-    $order = $_POST['order'];
+if($_POST['order'] == "stats")
+    $order = $_POST['item'];
+else
+    $order = "pelinumero";
 if($_POST['direction'])
     $direction = "ASC";
 $where = "player.active != false"; //jos joku ei halua näkyä enää tilastoissa
@@ -82,8 +79,24 @@ if($_POST['opponent'] && $_POST['opponent'] != "all") {
         $match = "AND match_id = 999";
     }
 }
-$query = $db->prepare("SELECT player_number AS pelaajanumero, last_name AS sukunimi, first_name AS etunimi, (SELECT COUNT(*) FROM statistics_event WHERE item_id = :item_id AND player.player_id = statistics_event.player_id $match) AS stats FROM player $where ORDER BY $order $direction");
-$query->bindParam(':item_id', $item_id);
+//$query = $db->prepare("SELECT player_number AS pelaajanumero, last_name AS sukunimi, first_name AS etunimi, (SELECT COUNT(*) FROM statistics_event WHERE item_id = :item_id AND player.player_id = statistics_event.player_id $match) AS stats FROM player $where ORDER BY $order $direction");
+//$query->bindParam(':item_id', $item_id);
+$items = $db->prepare("SELECT * FROM statistics_item;");
+$items->execute();
+$items_result = $items->fetchAll();
+$stat_query = "";
+$first = true;
+foreach($items_result as $item) {
+    if($first) {
+        $stat_query .= "(SELECT COUNT(*) FROM statistics_event WHERE item_id = " . $item['item_id'] . " AND player.player_id = statistics_event.player_id " . $match . ") AS " . $item['name'];
+        $first = false;
+    }
+    else
+        $stat_query .= ", (SELECT COUNT(*) FROM statistics_event WHERE item_id = " . $item['item_id'] . " AND player.player_id = statistics_event.player_id " . $match . ") AS " . $item['name'];
+}
+
+$query = $db->prepare("SELECT player_number AS pelinumero, last_name AS sukunimi, first_name AS etunimi, $stat_query FROM player $where ORDER BY $order $direction");
+var_dump($query);
 $query->execute();
 $result = $query->fetchAll();
 
@@ -93,9 +106,13 @@ foreach($header as $aux) {
         continue;
     print('<th>' . $aux . '</th>');
 }
-foreach($result as $row) {
+    foreach($result as $row) {
+        foreach($row as $key=>$var){
+            if(is_numeric($key)){
+                unset($row[$key]);
+            }
+        }
     print('<tr>');
-    $row = array_unique($row);
     foreach($row as $cell) { //String keyt olisi poistettava tai jätettävä huomioimatta
         print('<td>' . $cell .'</td>');
     }
@@ -128,13 +145,12 @@ foreach($result as $row) {
 		?>
 	</select>
     <select name="item">
-		<option value="1">Kaikki Tilastomerkinnät</option>
         <?php
             $stat_items = $db->prepare("SELECT * FROM statistics_item");
             $stat_items->execute();
             $result = $stat_items->fetchAll();
             foreach($result as $row) {
-                print('<option value=' . $row['item_id'] . '>');
+                print('<option value=' . $row['name'] . '>');
                 print($row['name']);
                 print('</option>');
             }
@@ -188,7 +204,7 @@ foreach($result as $row) {
         ?>
     </select>
     <select name="order">
-            <option value="stats">Järjestä Tilastojen mukaan</option>
+            <option value="stats">Järjestä Valitun Tilaston mukaan</option>
             <option value="player_number">Järjestä Pelinumeron mukaan</option>
 <!--            <option value="sex_appeal">Järjestä Seksikkyyden mukaan</option> Kotisivuille toteutettava pisteytysjärjestelmä -->
     </select>
