@@ -31,7 +31,7 @@ for($i = 0; $i < $opponents; ++$i) {
     $query->execute();
 }
 
-$stats = array('maali', 'syöttö', 'oma maali', 'keltainen', 'punainen', 'pelattu_ottelu');
+$stats = array('maali', 'syöttö', 'oma_maali', 'keltainen', 'punainen', 'pelattu_ottelu');
 $stats_count = sizeof($stats);
 while(!empty($stats)) {
     $item = array_pop($stats);
@@ -81,7 +81,8 @@ for($i = 0; $i < $events; $i++) {
 
 }
 
-$query = $db->prepare("INSERT INTO login (name, passwd) VALUES ('johto', '" . md5(kulta) . "'");
+$query = $db->prepare("INSERT INTO login (username, passwd) VALUES ('johto', '" . md5("kulta") . "')");
+var_dump($query);
 $query->execute();
 
 include 'close_db.php';

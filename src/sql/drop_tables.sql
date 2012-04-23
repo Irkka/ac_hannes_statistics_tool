@@ -4,3 +4,4 @@ DROP TABLE match;
 DROP TABLE opponent;
 DROP TABLE field;
 DROP TABLE player;
+DROP TABLE login;

@@ -49,7 +49,10 @@ echo '</form>';
 $direction = "DESC";
 
 $_SESSION['item'] = $_POST['item'];
-$order = $_POST['item'];
+if($_POST['item'])
+    $order = $_POST['item'];
+else
+    $order = "pelinumero";
 
 if($_POST['direction']) {
     $direction = "ASC";
@@ -115,7 +118,7 @@ if($_POST['opponent'] && $_POST['opponent'] != "all") {
     if(!empty($result)) {
         foreach($result as $row) {
             if($first) {
-                $match .= "AND (match_id = " . $row['match_id'];
+                $match .= " AND (match_id = " . $row['match_id'];
                 $first = false;
             }
             $match .= " OR match_id = " . $row['match_id'];
@@ -145,7 +148,7 @@ foreach($items_result as $item) {
 }
 
 $query = $db->prepare("SELECT player_number AS pelinumero, last_name AS sukunimi, first_name AS etunimi, $stat_query FROM player $where ORDER BY $order $direction");
-//var_dump($query);
+var_dump($query);
 $query->execute();
 $result = $query->fetchAll();
 //var_dump($result);
@@ -286,6 +289,8 @@ function loginIsGood($db) {
     $password = $_POST['password'];
 
     $query = $db->prepare("SELECT * FROM login WHERE username LIKE '{$username}' AND passwd LIKE '" . md5($password) . "'");
+    print("\n");
+    echo md5($password);
     $query->execute();
     $result = $query->fetchAll();
 

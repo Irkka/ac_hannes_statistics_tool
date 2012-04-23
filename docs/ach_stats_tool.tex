@@ -24,6 +24,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{float} % Allows putting an [H] in \begin{figure} to specify the exact location of the figure
 \usepackage{listings}
+\usepackage{float}
 \renewcommand{\contentsname}{Sisällysluettelo}
 \linespread{1.2} % Line spacing
 
@@ -164,22 +165,34 @@ DROP TABLE match;
 DROP TABLE opponent;
 DROP TABLE field;
 DROP TABLE player;
+DROP TABLE login;
 \end{lstlisting}
 %------------------------------------------------
+Tilastojärjestelmän mukana tulee luonnollisesti tietokannan pystyttämistä varten CREATE ja DROP TABLE lauseet. Testidata voidaan luoda populate.php -skriptillä. Taulujen luontilauseista huomionarvoista on kuinka kaikki tarvittavat virheentarkistukset ovat toteutettu kannan tarjoamilla työkaluilla. Jos esimerkiksi yritettäisiin luoda pelaajaa numerolla, joka on negatiivinen tai suurempi kuin 100 epäonnistuu kantaan kirjoitus ja ohjelma vain tulostaa yksinkertaisesti ``Failed''. Kommenteista voi nähdä myös muutamat vielä avoimet ratkaisut, miten käsitellään tilanteita, jolloin tauluista poistetaan tietoa. Tällä hetkellä vain tilastomerkintöjä on mahdollista poistaa johtoportaan toimesta, sillä ne eivät aiheuta muutoksia muissa tauluissa. Tiedon eheyden kannalta on siis vielä parempi että pelaajien, otteluiden tai tilastoartikkelien poisto tapahtuisi vain järjestelmävalvojan toimesta.
 
+\begin{figure}[h]
+	\begin{left}
+		\includegraphics[width=\textwidth]{kaavio.eps}
+	\end{left}
+	\caption{Tietosisältökaavio}
+	\label{fig:kaavio}
+\end{figure}
+Tietosisältökaavio näyttää ymmärrettävässä muodossa kuinka erilaiset riippuvuussuhteet yhdessä muodostavat yksilöitäviä tilastotapahtumia. Statistics\_event taulu sisältää tiedon pelaajasta, ottelusta ja tilastoartikkelista. Ottelussa voi tulla toki useita samanlaisia tilastomerkintöjä, mutta jokaista riviä yksilöi oma tunnuksensa. Tällä rakenteella kaikkea tilastoitavaa, uusia pelaajia, joukkueita ja kenttiä voidaan lisätä dynaamisesti ilman että toiminnallisuus rikkoutuisi.  Riippuvuuksien myötä voidaan selvittää niinkin spesifisiä tietoja, kuten millä pelialustalla loukkaantuminen tapahtui, ketä vastaan ja minä päivänä. Otteluiden lopputuloksetkin voidaan tuottaa helposti laskemalla maalitapahtumat statistics\_event taulusta tietyllä match\_id:llä ja vertaamalla sitä saman match\_id:n match-taulun opponent\_goals kenttään. Login taulua käytetään tässä vaiheessa vain demonstroimaan, miten johtoporras saa erilaisia näkymiä ohjelmaa käytettäessä. Jatkossa sama username-password kaksikko integroidaan jokaiselle pelaajalle.
 \subsection{Käyttöliittymän rakenne} % Sub-sub-section
+AC Hannes Statistics Toolin rakenne koostuu kahdesta erilaisesta näkymästä. Toinen kaikille avoin näkymä on tilasto-widget, jonka tarkoitus on olla siirrettävä ja helposti asennettava omalle kotisivulle. Tällä hetkellä se on toteuttu prototyyppimuodossaan omana sivustonaan, mutta ehkä myöhempänä ajankohtana sen voisi liittää pluginina vaikkapa wordpress sivuilleen. Widget koostuu tilastotaulusta ja suodatinvalikosta. Tilastotaulu esittää kaikkien kantaan lisättyjen tilastoartikkelien summat pelaajakohtaisina riveinä. Suodatinvalikko tarjoaa kenelle tahansa mahdollisuuden tarkastella tämän taulun tietoja järjestettynä eri tilastoartikkelin mukaan, eri ottelukohtaisia tilastoja sekä yksittäisen pelaajan tilastoja. Kaikki mahdolliset suodatinkokoonpanot ovat otettuna huomioon. Käyttäjä voi siis listata vaikkapa FC Herkulesta vastaan tehdyt maalit ottelussa FC Baggbölea vastaan. Tässä ei sinänsä ole mitään järkeä, mutta se demonstroi tilastotyökalun voimaa monipuolisuudessa.
 
+Tilastojärjestelmän päivittäminen tapahtuu sille omistetulta sivulta, jonne on sisäänpääsy vain tietyiltä henkilöiltä. AC Hannes joukkueen tapauksessa näitä henkilöitä kuvataan sanalla johtoporras. Johtoporras on jalkapallojoukkueen osajoukko, jolla on oikeudet lisätä tilastotietoja järjestelmään. Tämä onnistuu kirjautumalla etusivulla sisään(prototyypissä username=johto password=kulta). Ilman kirjautumisen suomaa sessiodataa päivityssivu ei lataa työkalua. Päivityssivu jakautuu kahteen loogiseen osaan: tilastotapahtuma- ja resurssitaulujenhallinta osaan. Tilastotapahtumia voi lisätä järjestelmässä vain yksi kerrallaan, mutta kuitenkin usealle pelaajalle 
 
 %----------------------------------------------------------------------------------------
 %	MAJOR SECTION 1
 %----------------------------------------------------------------------------------------
 
-\section{Käyttötapaukset} % Major section
+\section{Vaatimukset ja Käyttötapaukset} % Major section
 
 
 %------------------------------------------------
 
-\subsection{Subsection 1} % Sub-section
+\subsection{Vaatimukset} % Sub-section
 
 \subsubsection{Subsubsection 1} % Sub-sub-section
 
@@ -223,6 +236,7 @@ DROP TABLE player;
 %	CONCLUSION
 %----------------------------------------------------------------------------------------
 
+\subsection{Käyttötapaukset}
 \section{Loppumietelmät ja tulevat ominaisuudet} % Major section
 Kokemattomuus PHP:n kanssa johti hieman kökköön toteutukseen, jota olisi tarkoitus kehittää hieman elegantimmaksi. Tarkoituksena olisi että yhä useammat urheilujoukkueet voisivat helposti asentaa kotisivuilleen AC Hannes Statistics Toolin voiman. Tiedon taitavampi käsittely mahdollistaisi esimerkiksi graafien tai muiden visuaalisten mallien helpon luomisen. Tulevaisuudessa AC Hannes Statistics Toolia laajennetaan myös android sovellukseksi, jolloin faneille voidaan tarjoilla reaaliaikaista tilastotietoa suoraan kentän laidalta.
 

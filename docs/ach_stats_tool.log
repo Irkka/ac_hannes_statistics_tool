@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.2.20)  23 APR 2012 13:46
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.2.20)  23 APR 2012 16:43
 entering extended mode
  %&-line parsing enabled.
 **ach_stats_tool.tex
@@ -320,18 +320,18 @@ Package: listings 2007/02/22 1.4 (Carsten Heinz)
 (./ach_stats_tool.aux)
 \openout1 = `ach_stats_tool.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
 
 *geometry auto-detecting driver*
 *geometry detected driver: dvips*
@@ -376,11 +376,11 @@ driver: dvips
 -----------------------
 \c@lstlisting=\count99
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 59.
+(Font)              <12> on input line 60.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 59.
+(Font)              <8> on input line 60.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 59.
+(Font)              <6> on input line 60.
 [1
 
 ] (./ach_stats_tool.toc)
@@ -388,19 +388,19 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout3 = `ach_stats_tool.toc'.
 
  [1]
-Overfull \hbox (7.67525pt too wide) in paragraph at lines 93--94
+Overfull \hbox (7.67525pt too wide) in paragraph at lines 94--95
 \OT1/cmr/m/n/12 Sovellus on raken-nettu toim-i-maan PostgreSQL-kannan p^^?a^^?a
 ll^^?a ja se koos-tuu yksinker-
  []
 
 
-Overfull \hbox (8.46272pt too wide) in paragraph at lines 99--101
+Overfull \hbox (8.46272pt too wide) in paragraph at lines 100--102
 \OT1/cmr/m/n/12 etokan-nan ti-etoja read-only tilassa, jol-loin k^^?aytt^^?aj^^
 ?an p^^?a^^?atavoitteena on monipuolisen
  []
 
 
-Overfull \hbox (0.10725pt too wide) in paragraph at lines 99--101
+Overfull \hbox (0.10725pt too wide) in paragraph at lines 100--102
 \OT1/cmr/m/n/12 toimin-nan mah-dol-lis-taa ti-etokan-nan rakenne, joka pe-rus-t
 uu use-aan yksinker-taiseen
  []
@@ -416,7 +416,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.106 ... ('nurmi', 'hiekka', 'tekonurmi', 'sisä'
+l.107 ... ('nurmi', 'hiekka', 'tekonurmi', 'sisä'
                                                   , 'laivan kansi');
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -430,31 +430,31 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.106 ... ('nurmi', 'hiekka', 'tekonurmi', 'sisä'
+l.107 ... ('nurmi', 'hiekka', 'tekonurmi', 'sisä'
                                                   , 'laivan kansi');
 You need to provide a definition with \DeclareInputText 
 or \DeclareInputMath before using this key.
 
 [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 108.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 109.
 
  (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 108.
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 115.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 109.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 116.
 
 
 (/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 115.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 116.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 118.
+(Font)              <7> on input line 119.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 118.
+(Font)              <5> on input line 119.
 
 
 ! Package inputenc Error: Unicode char \u8:�\expandafter not set up for use wit
@@ -464,7 +464,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.118 ...--Kaikki non-active playerit esitetään 
+l.119 ...--Kaikki non-active playerit esitetään 
                                                   tilastosivuilla yhtenä pe...
 
 Your command was ignored.
@@ -479,7 +479,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.118 ...--Kaikki non-active playerit esitetään 
+l.119 ...--Kaikki non-active playerit esitetään 
                                                   tilastosivuilla yhtenä pe...
 
 You need to provide a definition with \DeclareInputText 
@@ -493,7 +493,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.118 ...--Kaikki non-active playerit esitetään 
+l.119 ...--Kaikki non-active playerit esitetään 
                                                   tilastosivuilla yhtenä pe...
 
 Your command was ignored.
@@ -508,7 +508,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.118 ...--Kaikki non-active playerit esitetään 
+l.119 ...--Kaikki non-active playerit esitetään 
                                                   tilastosivuilla yhtenä pe...
 
 You need to provide a definition with \DeclareInputText 
@@ -522,7 +522,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.118 ...erit esitetään tilastosivuilla yhtenä 
+l.119 ...erit esitetään tilastosivuilla yhtenä 
                                                   pelaajana 'muut'
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -536,14 +536,14 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.118 ...erit esitetään tilastosivuilla yhtenä 
+l.119 ...erit esitetään tilastosivuilla yhtenä 
                                                   pelaajana 'muut'
 You need to provide a definition with \DeclareInputText 
 or \DeclareInputMath before using this key.
 
 [3]
 LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 149.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 150.
 
 
 ! Package inputenc Error: Unicode char \u8:�\expandafter not set up for use wit
@@ -553,7 +553,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.150 ...istetaan match-taulusta, poistuvat myös 
+l.151 ...istetaan match-taulusta, poistuvat myös 
                                                   kaikki otteluun liitetyt t...
 
 Your command was ignored.
@@ -568,7 +568,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.150 ...istetaan match-taulusta, poistuvat myös 
+l.151 ...istetaan match-taulusta, poistuvat myös 
                                                   kaikki otteluun liitetyt t...
 
 You need to provide a definition with \DeclareInputText 
@@ -582,7 +582,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.150 ...aikki otteluun liitetyt tilastomerkinnät
+l.151 ...aikki otteluun liitetyt tilastomerkinnät
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -596,7 +596,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.150 ...aikki otteluun liitetyt tilastomerkinnät
+l.151 ...aikki otteluun liitetyt tilastomerkinnät
                                                   
 You need to provide a definition with \DeclareInputText 
 or \DeclareInputMath before using this key.
@@ -609,7 +609,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.151 ...etaan kaikki vastaavat tilastomerkinnät 
+l.152 ...etaan kaikki vastaavat tilastomerkinnät 
                                                   tuolle itemille
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -623,49 +623,111 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.151 ...etaan kaikki vastaavat tilastomerkinnät 
+l.152 ...etaan kaikki vastaavat tilastomerkinnät 
                                                   tuolle itemille
 You need to provide a definition with \DeclareInputText 
 or \DeclareInputMath before using this key.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--194
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 195--196
-
+Overfull \hbox (3.9586pt too wide) in paragraph at lines 171--172
+\OT1/cmr/m/n/12 pelaa-jien, ot-telu-iden tai tilas-toar-tikke-lien poisto tapah
+-tu-isi vain j^^?arjestelm^^?avalvojan
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 197--198
+! Missing $ inserted.
+<inserted text> 
+                $
+l.174 	\begin{left}
+                   
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing delimiter (. inserted).
+<to be read again> 
+                   \let 
+l.175 		\includegraphics
+                        [width=\textwidth]{kaavio.eps}
+I was expecting to see something like `(' or `\{' or
+`\}' here. If you typed, e.g., `{' instead of `\{', you
+should probably delete the `{' by typing `1' now, so that
+braces don't get unbalanced. Otherwise just proceed.
+Acceptable delimiters are characters whose \delcode is
+nonnegative, or you can use `\delimiter <delimiter code>'.
+
+File: kaavio.eps Graphic file (type eps)
+<kaavio.eps>
+! Missing \right. inserted.
+<inserted text> 
+                \right .
+l.176 	\end{left}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.176 	\end{left}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (2.4pt too wide) in paragraph at lines 174--177
+[]$[]$ 
+ []
+
+
+Overfull \hbox (2.6401pt too wide) in paragraph at lines 180--181
+\OT1/cmr/m/n/12 stroimaan, miten jo-hto-por-ras saa er-i-laisia n^^?akymi^^?a o
+hjel-maa k^^?aytett^^?aess^^?a. Jatkossa
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 211--212
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 213--214
 
  []
 
 
-Overfull \hbox (3.68501pt too wide) in paragraph at lines 222--223
+Underfull \hbox (badness 10000) in paragraph at lines 215--216
+
+ []
+
+
+Overfull \hbox (3.68501pt too wide) in paragraph at lines 241--242
 \OT1/cmr/m/n/12 Kokemattomuus PHP:n kanssa jo-hti hie-man k^^?okk^^?o^^?on to-t
 eu-tuk-seen, jota olisi tarkoi-
  []
 
 
-Overfull \hbox (7.14755pt too wide) in paragraph at lines 222--223
+Overfull \hbox (7.14755pt too wide) in paragraph at lines 241--242
 \OT1/cmr/m/n/12 urheilu-joukkueet voisi-vat hel-posti asen-taa ko-ti-sivuilleen
  AC Hannes Statis-tics Toolin
  []
 
 
-LaTeX Warning: Empty `thebibliography' environment on input line 229.
+LaTeX Warning: Empty `thebibliography' environment on input line 248.
 
-[5] (./ach_stats_tool.aux) ) 
+[7] (./ach_stats_tool.aux) ) 
 Here is how much of TeX's memory you used:
- 3135 strings out of 495062
- 40054 string characters out of 1182644
- 220938 words of memory out of 3000000
- 6311 multiletter control sequences out of 15000+50000
+ 3145 strings out of 495062
+ 40152 string characters out of 1182644
+ 220916 words of memory out of 3000000
+ 6319 multiletter control sequences out of 15000+50000
  10705 words of font info for 37 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 28i,5n,40p,702b,1818s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,5n,40p,1129b,1818s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on ach_stats_tool.dvi (6 pages, 19844 bytes).
+Output written on ach_stats_tool.dvi (8 pages, 26544 bytes).

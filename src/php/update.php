@@ -1,6 +1,7 @@
 <?php
 session_id($_COOKIE['session_id']);
 session_start();
+$_SESSION['match_id'] = $_POST['match'];
 if(!isset($_SESSION['logged_in'])) {
     echo "you shouldn't be here";
     die();
@@ -12,6 +13,7 @@ if(session_id() == '' )
     echo 'session_id() empty';
 }else{
     echo session_id();
+    echo $_SESSION['match_id'] . "<<<<<<<";
 }
 ?>
 <a href="index.php">etusivu</a>
@@ -55,7 +57,10 @@ if(session_id() == '' )
 	//var_dump($arr);
             $result = $match->fetchAll();
             foreach($result as $row) {
-                print('<option value=' . $row['match_id'] . '>');
+                if($_SESSION['match_id'] == $row['match_id'])
+                    print('<option selected="selected" value=' . $row['match_id'] . '>');
+                else
+                    print('<option value=' . $row['match_id'] . '>');
                 print($row['date'] . ' ' . $arr[$row['opponent_id']]);
                 print('</option>');
             }
@@ -94,6 +99,41 @@ if(session_id() == '' )
 <form name="add_opponent" action="update.php" method="post">
     <input type="text" name="opponent_name">Vastustajan Nimi</input>
     <input type="submit" name="commit_opponent" value="Lisää Uusi Vastustaja">
+</form>
+<form name="add_match" action="update.php" method="post">
+    <select name="match_opponent">
+        <?php
+        $opponent = $db->prepare("SELECT * FROM opponent");
+        $opponent->execute();
+        $result = $opponent->fetchAll();
+        foreach($result as $row) {
+            print('<option value="' . $row['opponent_id'] . '">' . $row['name'] . '</option>');
+        }
+        ?>
+    </select>
+    <select name="match_field">
+        <?php
+        $field = $db->prepare("SELECT * FROM field");
+        $field->execute();
+        $result = $field->fetchAll();
+        foreach($result as $row) {
+            print('<option value="' . $row['field_id'] . '">' . $row['name'] . '</option>');
+        }
+        ?>
+    </select>
+    <select name="opponent_goals">
+        <?php
+            for($i = 0; $i < 30; ++$i)
+                print('<option value="' . $i . '">' . $i . '</option>');
+        ?>
+    </select>
+    <select name="result">
+        <option name="w" value="w">Voitto</option>
+        <option name="t" value="t">Tasapeli</option>
+        <option name="l" value="l">Häviö</option>
+    </select>
+    <input type="text" name="date">Pvm(YYYY-MM-DD)</input>
+    <input type="submit" name="commit_match" value="Lisää Uusi Ottelu"/>
 </form>
 </div>
 <?php
@@ -187,6 +227,22 @@ if($_POST['commit_opponent'] && $_POST['opponent_name'] != null && trim(strip_ta
     else
         print("failed");
 }
+
+if($_POST['commit_match']) {
+    $opponent_id = $_POST['match_opponent'];
+    $field_id = $_POST['match_field'];
+    $date = trim(strip_tags($_POST['date']));
+    $result = trim(strip_tags($_POST['result']));
+    $opponent_goals = $_POST['opponent_goals'];
+    $add = $db->prepare("INSERT INTO match (opponent_id, field_id, date, result, opponent_goals) VALUES (" . $opponent_id . ", " . $field_id . ", '" . $date . "', '" . $result . "', " . $opponent_goals . ")");
+    var_dump($add);
+    if($add->execute()) {
+        print("match added!");
+    }
+    else
+        print("failed!");
+}
+
 include('db/close_db.php');
 include('templates/lower.html');
 ?>

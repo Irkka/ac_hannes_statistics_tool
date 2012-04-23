@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00cc68ac-c255-443d-a5e5-19defd879ca6" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/php/db/.populate.php.swp" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/ach_stats_tool.aux" afterPath="$PROJECT_DIR$/docs/ach_stats_tool.aux" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/ach_stats_tool.dvi" afterPath="$PROJECT_DIR$/docs/ach_stats_tool.dvi" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/ach_stats_tool.tex" afterPath="$PROJECT_DIR$/docs/ach_stats_tool.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/ach_stats_tool.toc" afterPath="$PROJECT_DIR$/docs/ach_stats_tool.toc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/tietosisältökaavio.xmi" afterPath="$PROJECT_DIR$/docs/tietosisältökaavio.xmi" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/ach_stats_tool.log" afterPath="$PROJECT_DIR$/docs/ach_stats_tool.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/php/db/populate.php" afterPath="$PROJECT_DIR$/src/php/db/populate.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/php/index.php" afterPath="$PROJECT_DIR$/src/php/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/php/templates/ach.css" afterPath="$PROJECT_DIR$/src/php/templates/ach.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/php/templates/upper.html" afterPath="$PROJECT_DIR$/src/php/templates/upper.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/php/update.php" afterPath="$PROJECT_DIR$/src/php/update.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sql/drop_tables.sql" afterPath="$PROJECT_DIR$/src/sql/drop_tables.sql" />
     </list>
     <ignored path="ac_hannes_statistics_tool.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,11 +35,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="update.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="update.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/php/update.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="10" selection-start="140" selection-end="140" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="240" column="0" selection-start="8478" selection-end="8478" vertical-scroll-proportion="0.87188613">
+              <folding>
+                <marker date="1335198939000" expanded="true" signature="4291:4367" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -40,24 +49,51 @@
       <file leaf-file-name="create_tables.sql" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sql/create_tables.sql">
           <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="22" selection-start="898" selection-end="898" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/php/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="257" column="25" selection-start="8151" selection-end="8151" vertical-scroll-proportion="-0.0">
+              <folding>
+                <marker date="1335198166000" expanded="true" signature="5957:6226" placeholder="..." />
+                <marker date="1335198166000" expanded="true" signature="6761:7261" placeholder="..." />
+                <marker date="1335198166000" expanded="true" signature="6761:7037" placeholder="..." />
+                <marker date="1335198166000" expanded="true" signature="7397:7823" placeholder="..." />
+                <marker date="1335198166000" expanded="true" signature="7397:7656" placeholder="..." />
+                <marker date="1335198166000" expanded="true" signature="8004:8364" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="connect_db.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/php/db/connect_db.php">
+          <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/php/index.php">
+      <file leaf-file-name="generate.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/php/db/generate.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="150" column="2" selection-start="4411" selection-end="4411" vertical-scroll-proportion="0.4681604">
-              <folding>
-                <marker date="1335098984000" expanded="true" signature="5903:6172" placeholder="..." />
-                <marker date="1335098984000" expanded="true" signature="6707:7207" placeholder="..." />
-                <marker date="1335098984000" expanded="true" signature="6707:6983" placeholder="..." />
-                <marker date="1335098984000" expanded="true" signature="7343:7769" placeholder="..." />
-                <marker date="1335098984000" expanded="true" signature="7343:7602" placeholder="..." />
-                <marker date="1335098984000" expanded="true" signature="7950:8310" placeholder="..." />
-              </folding>
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="populate.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/php/db/populate.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="58" column="41" selection-start="2134" selection-end="2134" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -98,17 +134,18 @@
         <option value="$PROJECT_DIR$/src/php/templates/ach.css" />
         <option value="$PROJECT_DIR$/src/php/templates/upper.html" />
         <option value="$PROJECT_DIR$/src/php/check_login.php" />
-        <option value="$PROJECT_DIR$/src/php/update.php" />
+        <option value="$PROJECT_DIR$/src/php/db/populate.php" />
         <option value="$PROJECT_DIR$/src/php/index.php" />
+        <option value="$PROJECT_DIR$/src/php/update.php" />
       </list>
     </option>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="php5" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="y" value="25" />
+    <option name="y" value="-3" />
     <option name="width" value="1696" />
-    <option name="height" value="1066" />
+    <option name="height" value="1061" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -212,6 +249,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ac_hannes_statistics_tool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ac_hannes_statistics_tool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -221,8 +280,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
   </component>
-  <component name="RunManager" selected="PHP Script.check_login.php">
+  <component name="RunManager" selected="PHP Script.index.php">
     <configuration default="false" name="check_login.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/src/php/check_login.php">
+      <method />
+    </configuration>
+    <configuration default="false" name="index.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/src/php/index.php">
+      <RunnerSettings RunnerId="PhpRunner" />
+      <ConfigurationWrapper RunnerId="PhpRunner" />
       <method />
     </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
@@ -230,11 +294,30 @@
         <option name="PhingTarget" enabled="false" />
       </method>
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="PHP Script.check_login.php" />
+      <item index="1" class="java.lang.String" itemvalue="PHP Script.index.php" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="DETECT_NESTED_COPIES" value="true" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <configuration useDefault="false">$USER_HOME$/.subversion_IDEA</configuration>
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="00cc68ac-c255-443d-a5e5-19defd879ca6" name="Default" comment="" />
@@ -244,18 +327,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="25" width="1696" height="1066" extended-state="2" />
+    <frame x="-8" y="-3" width="1696" height="1061" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27941176" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3002451" sideWeight="0.9701987" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930845" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -318,14 +401,24 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/php/update.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="10" selection-start="140" selection-end="140" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sql/create_tables.sql">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="22" selection-start="898" selection-end="898" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/php/db/connect_db.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/php/db/generate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/php/db/populate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="41" selection-start="2134" selection-end="2134" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/php/templates/upper.html">
@@ -340,14 +433,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/php/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="2" selection-start="4411" selection-end="4411" vertical-scroll-proportion="0.4681604">
+        <state line="257" column="25" selection-start="8151" selection-end="8151" vertical-scroll-proportion="-0.0">
           <folding>
-            <marker date="1335098984000" expanded="true" signature="5903:6172" placeholder="..." />
-            <marker date="1335098984000" expanded="true" signature="6707:7207" placeholder="..." />
-            <marker date="1335098984000" expanded="true" signature="6707:6983" placeholder="..." />
-            <marker date="1335098984000" expanded="true" signature="7343:7769" placeholder="..." />
-            <marker date="1335098984000" expanded="true" signature="7343:7602" placeholder="..." />
-            <marker date="1335098984000" expanded="true" signature="7950:8310" placeholder="..." />
+            <marker date="1335198166000" expanded="true" signature="5957:6226" placeholder="..." />
+            <marker date="1335198166000" expanded="true" signature="6761:7261" placeholder="..." />
+            <marker date="1335198166000" expanded="true" signature="6761:7037" placeholder="..." />
+            <marker date="1335198166000" expanded="true" signature="7397:7823" placeholder="..." />
+            <marker date="1335198166000" expanded="true" signature="7397:7656" placeholder="..." />
+            <marker date="1335198166000" expanded="true" signature="8004:8364" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/php/update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="240" column="0" selection-start="8478" selection-end="8478" vertical-scroll-proportion="0.87188613">
+          <folding>
+            <marker date="1335198939000" expanded="true" signature="4291:4367" placeholder="..." />
           </folding>
         </state>
       </provider>
