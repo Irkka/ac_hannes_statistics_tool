@@ -47,3 +47,7 @@ match_id INTEGER REFERENCES match ON DELETE CASCADE, --jos ottelu poistetaan mat
 item_id INTEGER REFERENCES statistics_item ON DELETE CASCADE --jos tilastoitava asia poistetaan statistics_item-taulusta, poistetaan kaikki vastaavat tilastomerkinnät tuolle itemille
 );
 
+CREATE TABLE login (
+username VARCHAR(10) PRIMARY KEY,
+passwd VARCHAR(32) NOT NULL
+);

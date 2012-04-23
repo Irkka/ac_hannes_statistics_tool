@@ -1,0 +1,240 @@
+% Simple Sectioned Essay Template
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing essay content.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[12pt]{article} % Default font size is 12pt, it can be changed here
+
+\usepackage{geometry} % Required to change the page size to A4
+\geometry{a4paper} % Set the page size to be A4 as opposed to the default US Letter
+
+\usepackage{graphicx} % Required for including pictures
+\usepackage[utf8]{inputenc}
+\usepackage{float} % Allows putting an [H] in \begin{figure} to specify the exact location of the figure
+\usepackage{listings}
+\renewcommand{\contentsname}{Sisällysluettelo}
+\linespread{1.2} % Line spacing
+
+%\setlength\parindent{0pt} % Uncomment to remove all indentation from paragraphs
+
+\graphicspath{{./Pictures/}} % Specifies the directory where pictures are stored
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+
+\textsc{\LARGE Helsingin Yliopisto}\\[1.5cm] % Name of your university/college
+\textsc{\Large Tietojenkäsittelytieteen laitos}\\[0.5cm] % Major heading such as course name
+\textsc{\large Tietokantasovellus}\\[0.5cm] % Minor heading such as course title
+
+\HRule \\[0.4cm]
+{ \huge \bfseries AC Hannes Statistics Tool}\\[0.4cm] % Title of your document
+\HRule \\[1.5cm]
+
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Tekijä:}\\
+Ilkka \textsc{Hakkarainen} % Your name
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Ohjaaja:} \\
+Harri \textsc{Laine} % Supervisor's Name
+\end{flushright}
+\end{minipage}\\[4cm]
+
+{\large \today}\\[3cm] % Date, change the \today to a set date if you want to be precise
+
+%\includegraphics{Logo}\\[1cm] % Include a department/university logo - this will require the graphicx package
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\tableofcontents{Sisällysluettelo} % Include a table of contents
+
+\newpage % Begins the essay on a new page instead of on the same page as the table of contents 
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+\section{Esittely} % Major section
+AC Hannes Statistics Tool on urheilulajisitomaton tilastointijärjestelmä, joka mahdollistaa äärimmäisen dynaamisen tilastoinnin ja tilastojen koostamisen. Tuettuja ominaisuuksia ovat mm. uusien tilastoitavien artikkelien lisääminen lennosta ja tilastojen koostaminen esimerkiksi pelikentän tai vastustajajoukkueen mukaan. Innostus aiheeseen tuli omasta ja jalkapallojoukkueen tarpeesta tuoda toiminta seuraavalle vuosituhannelle. Tilastointipalvelu käyttää yhteistä tietokantaa AC Hanneksen kotisivujen kanssa, joten osa määrittelyistä voi tuntua epäolennaiselta sovelluksen kannalta ja niitä ei myöskään käsitellä sen tarkemmin tässä dokumentissa.
+%------------------------------------------------
+
+\subsection{Käytetyt tekniikat} % Sub-section
+Sovellus on rakennettu toimimaan PostgreSQL-kannan päällä ja se koostuu yksinkertaisista php-skripteistä. Näillä ratkaisuilla pyritään takaamaan Statistics Toolin helppo siirrettävyys ja laajennettavuus.
+
+
+%------------------------------------------------
+
+\section{Ohjelman rakenne} % Sub-section
+Käyttöliittymältään AC Hannes Statistics Toolilla on kaksi tilaa, jotka heijastavat suoraan eri käyttäjäkuntia. Koostamistilassa käyttäjän on mahdollista käsitellä tietokannan tietoja read-only tilassa, jolloin käyttäjän päätavoitteena on monipuolisen tilastodatan koostaminen erilaisiin tarkoituksiin. Joukkueen johtoportaalle tarjotaan sen sijaan elegantti ja helppokäyttöinen käyttöliittymä tilastojen luomiseen ja poistamiseen, sekä tilastoartikkelien päivittämiseen. Kaiken tämän dynaamisen toiminnan mahdollistaa tietokannan rakenne, joka perustuu useaan yksinkertaiseen tauluun, joista voidaan johtaa monimutkaisia tilastotietoja.
+%------------------------------------------------
+
+\subsection{Tietokannan rakenne ja määrittely} % Sub-sub-section
+\lstset{frame=single, language=SQL, caption=Create Table Statements, basicstyle=\footnotesize, breaklines=true,}
+\begin{lstlisting}
+CREATE TYPE RESULT AS ENUM ('w', 't', 'l');
+CREATE TYPE PLATFORM AS ENUM ('nurmi', 'hiekka', 'tekonurmi', 'sisä', 'laivan kansi');
+
+/*
+* EI CASCADEA, jos pelaaja poistetaan. Muuten lopputulos muuttuu.
+*/
+CREATE TABLE player (
+player_id SERIAL PRIMARY KEY,
+last_name VARCHAR(20) NOT NULL,
+first_name VARCHAR(20) NOT NULL,
+player_number INTEGER NOT NULL CONSTRAINT illegal_player_number CHECK (player_number > 0 AND player_number < 100),
+picture_path VARCHAR(20) DEFAULT 'default',
+description VARCHAR(200) DEFAULT 'no description... yet.',
+active BOOLEAN NOT NULL DEFAULT true, --Kaikki non-active playerit esitetään tilastosivuilla yhtenä pelaajana 'muut'
+CONSTRAINT player_exists UNIQUE(last_name, first_name)
+);
+
+CREATE TABLE opponent (
+opponent_id SERIAL PRIMARY KEY,
+name VARCHAR(20) CONSTRAINT opponent_exists UNIQUE
+);
+
+CREATE TABLE field (
+field_id SERIAL PRIMARY KEY,
+name VARCHAR(50) CONSTRAINT field_exists UNIQUE,
+platform PLATFORM
+);
+
+CREATE TABLE match (
+match_id SERIAL PRIMARY KEY,
+opponent_id INTEGER REFERENCES opponent,
+field_id INTEGER REFERENCES field,
+date DATE NOT NULL DEFAULT CURRENT_DATE, --default today() tjsp
+result RESULT NOT NULL,
+opponent_goals INTEGER NOT NULL CONSTRAINT positive_goal_amount CHECK (opponent_goals >= 0)
+);
+
+CREATE TABLE statistics_item (
+item_id SERIAL PRIMARY KEY,
+name VARCHAR(20) CONSTRAINT item_exists UNIQUE
+);
+
+CREATE TABLE statistics_event (
+statistics_event_id SERIAL PRIMARY KEY,
+player_id INTEGER REFERENCES player ON DELETE RESTRICT, --player-taulusta ei ole mahdollista poistaa pelaajaa, jolla on tilastotapahtumia -> Pelaajalle laitetaan active=false
+match_id INTEGER REFERENCES match ON DELETE CASCADE, --jos ottelu poistetaan match-taulusta, poistuvat myös kaikki otteluun liitetyt tilastomerkinnät
+item_id INTEGER REFERENCES statistics_item ON DELETE CASCADE --jos tilastoitava asia poistetaan statistics_item-taulusta, poistetaan kaikki vastaavat tilastomerkinnät tuolle itemille
+);
+
+CREATE TABLE login (
+username VARCHAR(10) PRIMARY KEY,
+passwd VARCHAR(32) NOT NULL
+);
+
+\end{lstlisting}
+\begin{lstlisting}[caption=Drop Table Statements]
+DROP TABLE statistics_event;
+DROP TABLE statistics_item;
+DROP TABLE match;
+DROP TABLE opponent;
+DROP TABLE field;
+DROP TABLE player;
+\end{lstlisting}
+%------------------------------------------------
+
+\subsection{Käyttöliittymän rakenne} % Sub-sub-section
+
+
+%----------------------------------------------------------------------------------------
+%	MAJOR SECTION 1
+%----------------------------------------------------------------------------------------
+
+\section{Käyttötapaukset} % Major section
+
+
+%------------------------------------------------
+
+\subsection{Subsection 1} % Sub-section
+
+\subsubsection{Subsubsection 1} % Sub-sub-section
+
+
+%------------------------------------------------
+
+\subsubsection{Subsubsection 2} % Sub-sub-section
+
+
+%------------------------------------------------
+
+\subsubsection{Subsubsection 3} % Sub-sub-section
+
+\begin{description} % Numbered list example
+
+\item[First] \hfill \\
+
+\item[Second] \hfill \\
+
+\item[Third] \hfill \\
+
+\end{description} 
+
+%----------------------------------------------------------------------------------------
+%	MAJOR SECTION X - TEMPLATE - UNCOMMENT AND FILL IN
+%----------------------------------------------------------------------------------------
+
+%\section{Content Section}
+
+%\subsection{Subsection 1} % Sub-section
+
+% Content
+
+%------------------------------------------------
+
+%\subsection{Subsection 2} % Sub-section
+
+% Content
+
+%----------------------------------------------------------------------------------------
+%	CONCLUSION
+%----------------------------------------------------------------------------------------
+
+\section{Loppumietelmät ja tulevat ominaisuudet} % Major section
+Kokemattomuus PHP:n kanssa johti hieman kökköön toteutukseen, jota olisi tarkoitus kehittää hieman elegantimmaksi. Tarkoituksena olisi että yhä useammat urheilujoukkueet voisivat helposti asentaa kotisivuilleen AC Hannes Statistics Toolin voiman. Tiedon taitavampi käsittely mahdollistaisi esimerkiksi graafien tai muiden visuaalisten mallien helpon luomisen. Tulevaisuudessa AC Hannes Statistics Toolia laajennetaan myös android sovellukseksi, jolloin faneille voidaan tarjoilla reaaliaikaista tilastotietoa suoraan kentän laidalta.
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
+\end{thebibliography}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
+
+

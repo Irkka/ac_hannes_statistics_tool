@@ -1,6 +1,18 @@
 <?php
+session_id($_COOKIE['session_id']);
+session_start();
+if(!isset($_SESSION['logged_in'])) {
+    echo "you shouldn't be here";
+    die();
+}
 include ('templates/upper.html');
 include('db/connect_db.php');
+if(session_id() == '' )
+{
+    echo 'session_id() empty';
+}else{
+    echo session_id();
+}
 ?>
 <a href="index.php">etusivu</a>
 <div id="update">
@@ -134,8 +146,8 @@ if($_POST['delete'] && $_POST['players'] != null) {
     else
         print("FAILED");
 }
-if($_POST['commit_item'] && $_POST['item_name'] != null && trim($_POST['item_name'] != "")) {
-    $item_name = "('" . trim($_POST['item_name']) . "')";
+if($_POST['commit_item'] && $_POST['item_name'] != null && trim(strip_tags($_POST['item_name'])) != "") {
+    $item_name = "('" . trim(strip_tags($_POST['item_name'])) . "')";
     $add = $db->prepare("INSERT INTO statistics_item (name) VALUES $item_name");
     var_dump($add);
     if($add->execute())
@@ -144,11 +156,10 @@ if($_POST['commit_item'] && $_POST['item_name'] != null && trim($_POST['item_nam
         print("failed");
 }
 
-if($_POST['commit_player'] && $_POST['last_name'] != null && trim($_POST['last_name'] != "")) {
-    $last_name = "'" . trim($_POST['last_name']) . "'";
-    $first_name = "'" . trim($_POST['first_name']) . "'";
+if($_POST['commit_player'] && trim(strip_tags($_POST['last_name'])) != "" && trim(strip_tags($_POST['first_name'])) != "") {
+    $last_name = "'" . trim(strip_tags($_POST['last_name'])) . "'";
+    $first_name = "'" . trim(strip_tags($_POST['first_name'])) . "'";
     $player_number = $_POST['player_number'];
-var_dump($player_number);
     $add = $db->prepare("INSERT INTO player (last_name, first_name, player_number) VALUES ($last_name, $first_name, $player_number)");
     var_dump($add);
     if($add->execute())
@@ -157,8 +168,8 @@ var_dump($player_number);
         print("failed");
 }
 
-if($_POST['commit_field'] && $_POST['field_name'] != null && trim($_POST['field_name'] != "")) {
-    $field_name = "('" . trim($_POST['field_name']) . "')";
+if($_POST['commit_field'] && $_POST['field_name'] != null && trim(strip_tags($_POST['field_name'])) != "") {
+    $field_name = "('" . trim(strip_tags($_POST['field_name'])) . "')";
     $add = $db->prepare("INSERT INTO field (name) values $field_name");
     var_dump($add);
     if($add->execute())
@@ -167,8 +178,8 @@ if($_POST['commit_field'] && $_POST['field_name'] != null && trim($_POST['field_
         print("failed");
 }
 
-if($_POST['commit_opponent'] && $_POST['opponent_name'] != null && trim($_POST['opponent_name'] != "")) {
-    $opponent_name = "('" . trim($_POST['opponent_name']) . "')";
+if($_POST['commit_opponent'] && $_POST['opponent_name'] != null && trim(strip_tags($_POST['opponent_name'])) != "") {
+    $opponent_name = "('" . trim(strip_tags($_POST['opponent_name'])) . "')";
     $add = $db->prepare("INSERT INTO opponent (name) VALUES $opponent_name");
     var_dump($add);
     if($add->execute())

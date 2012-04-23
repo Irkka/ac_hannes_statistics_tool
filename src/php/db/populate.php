@@ -80,5 +80,9 @@ for($i = 0; $i < $events; $i++) {
     $query->execute();
 
 }
+
+$query = $db->prepare("INSERT INTO login (name, passwd) VALUES ('johto', '" . md5(kulta) . "'");
+$query->execute();
+
 include 'close_db.php';
 ?>
