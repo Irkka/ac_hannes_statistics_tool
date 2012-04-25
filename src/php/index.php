@@ -148,7 +148,7 @@ foreach($items_result as $item) {
 }
 
 $query = $db->prepare("SELECT player_number AS pelinumero, last_name AS sukunimi, first_name AS etunimi, $stat_query FROM player $where ORDER BY $order $direction");
-var_dump($query);
+//var_dump($query);
 $query->execute();
 $result = $query->fetchAll();
 //var_dump($result);
