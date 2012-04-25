@@ -18,6 +18,156 @@ if(session_id() == '' )
 }
 */
 ?>
+<div id="messages">
+<?php
+if($_POST['add'] && $_POST['players'] != null) {
+    $players = $_POST['players'];
+    $values = '';
+    $first = true;
+    foreach($players as $aux) {
+        if($first) {
+            $values .= '(' . $aux . ',' . $_POST['match'] . ',' . $_POST['item'] . ')';
+            $first = false;
+        }
+        else
+            $values .= ', (' . $aux . ',' . $_POST['match'] . ',' . $_POST['item'] . ')';
+    }
+    $add = $db->prepare("INSERT INTO statistics_event (player_id, match_id, item_id) VALUES $values");
+    //var_dump($add);
+    if($add->execute()) {
+        print('<p class="success">');
+        print("Statistics event recorded");
+        print('</p>');
+    }
+    else {
+        print('<p class="failed">');
+        print("FAILED");
+        print('</p>');
+    }
+       
+
+    // var_dump($values);
+    //  var_dump($add);
+}
+/**
+ * HUOM! Delete poistaa kaikki samannimiset tilastot pelistä annetuilta henkilöiltä
+ */
+if($_POST['delete'] && $_POST['players'] != null) {
+    $players = $_POST['players']; // tämä ei näy arrayna!!!
+    $values = '(';
+    $first = true;
+    foreach($players as $aux) {
+        if($first) {
+            $values .= $aux . ' = player_id';
+            $first = false;
+        }
+        else {
+            $values .= " OR " . $aux . ' = player_id';
+        }
+    }
+    $values .= ")";
+    $match = $_POST['match'];
+    $item = $_POST['item'];
+    $delete = $db->prepare("DELETE FROM statistics_event WHERE $match = match_id AND $item = item_id AND $values");
+    //var_dump($delete);
+    if($delete->execute()) {
+        print('<p class="success">');
+        print("Deleted!");
+        print('</p>');
+    }
+    else {
+        print('<p class="failed">');
+        print("FAILED");
+        print('</p>');
+    }
+}
+if($_POST['commit_item'] && $_POST['item_name'] != null && trim(strip_tags($_POST['item_name'])) != "") {
+    $item_name = "('" . trim(strip_tags($_POST['item_name'])) . "')";
+    $add = $db->prepare("INSERT INTO statistics_item (name) VALUES $item_name");
+    //var_dump($add);
+    if($add->execute()) {
+        print('<p class="success">');
+        print("item added!");
+        print('</p>');
+    }
+    else {
+        print('<p class="failed">');
+        print("failed");
+        print('</p>');
+    }
+}
+
+if($_POST['commit_player'] && trim(strip_tags($_POST['last_name'])) != "" && trim(strip_tags($_POST['first_name'])) != "") {
+    $last_name = "'" . trim(strip_tags($_POST['last_name'])) . "'";
+    $first_name = "'" . trim(strip_tags($_POST['first_name'])) . "'";
+    $player_number = $_POST['player_number'];
+    $add = $db->prepare("INSERT INTO player (last_name, first_name, player_number) VALUES ($last_name, $first_name, $player_number)");
+    //var_dump($add);
+    if($add->execute()) {
+        print('<p class="success">');
+        print("player added!");
+        print('</p>');
+    }
+    else {
+        print('<p class="failed">');
+        print("failed");
+        print('</p>');
+    }
+}
+
+if($_POST['commit_field'] && $_POST['field_name'] != null && trim(strip_tags($_POST['field_name'])) != "") {
+    $field_name = "('" . trim(strip_tags($_POST['field_name'])) . "')";
+    $add = $db->prepare("INSERT INTO field (name) values $field_name");
+    //var_dump($add);
+    if($add->execute()) {
+        print('<p class="success">');
+        print("field added!");
+        print('</p>');
+    }
+    else {
+        print('<p class="failed">');
+        print("failed");
+        print('</p>');
+    }
+}
+
+if($_POST['commit_opponent'] && $_POST['opponent_name'] != null && trim(strip_tags($_POST['opponent_name'])) != "") {
+    $opponent_name = "('" . trim(strip_tags($_POST['opponent_name'])) . "')";
+    $add = $db->prepare("INSERT INTO opponent (name) VALUES $opponent_name");
+    //var_dump($add);
+    if($add->execute()) {
+        print('<p class="success">');
+        print("opponent added!");
+        print('</p>');
+    }
+    else {
+        print('<p class="failed">');
+        print("failed");
+        print('</p>');
+    }
+}
+
+if($_POST['commit_match']) {
+    $opponent_id = $_POST['match_opponent'];
+    $field_id = $_POST['match_field'];
+    $date = trim(strip_tags($_POST['date']));
+    $result = trim(strip_tags($_POST['result']));
+    $opponent_goals = $_POST['opponent_goals'];
+    $add = $db->prepare("INSERT INTO match (opponent_id, field_id, date, result, opponent_goals) VALUES (" . $opponent_id . ", " . $field_id . ", '" . $date . "', '" . $result . "', " . $opponent_goals . ")");
+    //var_dump($add);
+    if($add->execute()) {
+        print('<p class="success">');
+        print("match added!");
+        print('</p>');
+    }
+    else {
+        print('<p class="failed">');
+        print("failed!");
+        print('</p>');
+    }
+}
+?>
+</div>
 <a href="index.php">etusivu</a>
 <div id="update">
 <form name=modify action="update.php" method="post">
@@ -139,112 +289,6 @@ if(session_id() == '' )
 </form>
 </div>
 <?php
-if($_POST['add'] && $_POST['players'] != null) {
-    $players = $_POST['players'];
-    $values = '';
-    $first = true;
-    foreach($players as $aux) {
-        if($first) {
-            $values .= '(' . $aux . ',' . $_POST['match'] . ',' . $_POST['item'] . ')';
-            $first = false;
-        }
-        else
-            $values .= ', (' . $aux . ',' . $_POST['match'] . ',' . $_POST['item'] . ')';
-    }
-    $add = $db->prepare("INSERT INTO statistics_event (player_id, match_id, item_id) VALUES $values");
-    //var_dump($add);
-    if($add->execute()) {
-        print("Statistics event recorded");
-    }
-    else
-        print("FAILED");
-
-   // var_dump($values);
-  //  var_dump($add);
-}
-/**
- * HUOM! Delete poistaa kaikki samannimiset tilastot pelistä annetuilta henkilöiltä
- */
-if($_POST['delete'] && $_POST['players'] != null) {
-    $players = $_POST['players']; // tämä ei näy arrayna!!!
-    $values = '(';
-    $first = true;
-    foreach($players as $aux) {
-        if($first) {
-            $values .= $aux . ' = player_id';
-            $first = false;
-        }
-        else {
-            $values .= " OR " . $aux . ' = player_id';
-        }
-    }
-    $values .= ")";
-    $match = $_POST['match'];
-    $item = $_POST['item'];
-    $delete = $db->prepare("DELETE FROM statistics_event WHERE $match = match_id AND $item = item_id AND $values");
-    //var_dump($delete);
-    if($delete->execute())
-        print("Deleted!");
-    else
-        print("FAILED");
-}
-if($_POST['commit_item'] && $_POST['item_name'] != null && trim(strip_tags($_POST['item_name'])) != "") {
-    $item_name = "('" . trim(strip_tags($_POST['item_name'])) . "')";
-    $add = $db->prepare("INSERT INTO statistics_item (name) VALUES $item_name");
-    //var_dump($add);
-    if($add->execute())
-        print("item added!");
-    else
-        print("failed");
-}
-
-if($_POST['commit_player'] && trim(strip_tags($_POST['last_name'])) != "" && trim(strip_tags($_POST['first_name'])) != "") {
-    $last_name = "'" . trim(strip_tags($_POST['last_name'])) . "'";
-    $first_name = "'" . trim(strip_tags($_POST['first_name'])) . "'";
-    $player_number = $_POST['player_number'];
-    $add = $db->prepare("INSERT INTO player (last_name, first_name, player_number) VALUES ($last_name, $first_name, $player_number)");
-    //var_dump($add);
-    if($add->execute())
-        print("player added!");
-    else
-        print("failed");
-}
-
-if($_POST['commit_field'] && $_POST['field_name'] != null && trim(strip_tags($_POST['field_name'])) != "") {
-    $field_name = "('" . trim(strip_tags($_POST['field_name'])) . "')";
-    $add = $db->prepare("INSERT INTO field (name) values $field_name");
-    //var_dump($add);
-    if($add->execute())
-        print("field added!");
-    else
-        print("failed");
-}
-
-if($_POST['commit_opponent'] && $_POST['opponent_name'] != null && trim(strip_tags($_POST['opponent_name'])) != "") {
-    $opponent_name = "('" . trim(strip_tags($_POST['opponent_name'])) . "')";
-    $add = $db->prepare("INSERT INTO opponent (name) VALUES $opponent_name");
-    //var_dump($add);
-    if($add->execute())
-        print("opponent added!");
-    else
-        print("failed");
-}
-
-if($_POST['commit_match']) {
-    $opponent_id = $_POST['match_opponent'];
-    $field_id = $_POST['match_field'];
-    $date = trim(strip_tags($_POST['date']));
-    $result = trim(strip_tags($_POST['result']));
-    $opponent_goals = $_POST['opponent_goals'];
-    $add = $db->prepare("INSERT INTO match (opponent_id, field_id, date, result, opponent_goals) VALUES (" . $opponent_id . ", " . $field_id . ", '" . $date . "', '" . $result . "', " . $opponent_goals . ")");
-    //var_dump($add);
-    if($add->execute()) {
-        print("match added!");
-    }
-    else
-        print("failed!");
-}
-
 include('db/close_db.php');
 include('templates/lower.html');
 ?>

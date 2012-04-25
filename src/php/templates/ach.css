@@ -49,3 +49,15 @@ select {
 input {
     width: 60%;
 }
+
+#messages {
+    height: 5em;
+}
+
+#messages p.success {
+    background-color: green;
+}
+
+#messages p.failed {
+    background-color: red;
+}
