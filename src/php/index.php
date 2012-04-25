@@ -291,7 +291,7 @@ function loginIsGood($db) {
 
     $query = $db->prepare("SELECT * FROM login WHERE username LIKE '{$username}' AND passwd LIKE '" . md5($password) . "'");
     print("\n");
-    echo md5($password);
+//    echo md5($password);
     $query->execute();
     $result = $query->fetchAll();
 
