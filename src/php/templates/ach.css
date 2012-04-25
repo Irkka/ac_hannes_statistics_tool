@@ -54,6 +54,11 @@ input {
     height: 5em;
 }
 
+#logo {
+    height: 5em;
+    float: right;
+}
+
 #messages p.success {
     background-color: green;
 }
