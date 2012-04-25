@@ -9,12 +9,13 @@ include('db/connect_db.php');
 ?>
 <div id="login_box">
 <?php
-    if(session_id() == '' )
+/*    if(session_id() == '' )
     {
         echo 'session_id() empty';
     }else{
         echo session_id();
     }
+*/
 if($_POST['login']) {
     if(loginIsGood($db)) {
         echo "<p>Login good!</p>";

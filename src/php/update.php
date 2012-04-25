@@ -8,6 +8,7 @@ if(!isset($_SESSION['logged_in'])) {
 }
 include ('templates/upper.html');
 include('db/connect_db.php');
+/*
 if(session_id() == '' )
 {
     echo 'session_id() empty';
@@ -15,6 +16,7 @@ if(session_id() == '' )
     echo session_id();
     echo $_SESSION['match_id'] . "<<<<<<<";
 }
+*/
 ?>
 <a href="index.php">etusivu</a>
 <div id="update">
