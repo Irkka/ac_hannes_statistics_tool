@@ -27,7 +27,7 @@ if(session_id() == '' )
             foreach($result as $row) {
                 print('<input type="checkbox" name="players[]" value="' . $row['player_id'] . '">');
                 print($row['player_number'] . ' ' . $row['last_name']);
-                print('</input>');
+                print('</input></br>');
             }
 	?>
     </div>

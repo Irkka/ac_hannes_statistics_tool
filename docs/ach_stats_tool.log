@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.2.20)  23 APR 2012 16:43
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.2.20)  23 APR 2012 22:37
 entering extended mode
  %&-line parsing enabled.
 **ach_stats_tool.tex
@@ -691,43 +691,76 @@ hjel-maa k^^?aytett^^?aess^^?a. Jatkossa
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 211--212
-
+Overfull \hbox (20.62186pt too wide) in paragraph at lines 191--193
+\OT1/cmr/m/n/12 n^^?am^^?a vaa-timuk-set lois-tavasti. In-tu-iti-ivi-nen k^^?ay
+tt^^?oliittym^^?a ja varta vas-ten monipuolisu-
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 213--214
+Overfull \hbox (17.60152pt too wide) in paragraph at lines 217--218
+\OT1/cmr/m/n/12 ottelu-/kentt^^?a-/vastustaja-/pelaajakohtaisia tilas-toja sek^
+^?a n^^?aiden mieli-v-al-taisia yhdis-
+ []
 
+[7]
+Overfull \hbox (19.72095pt too wide) in paragraph at lines 253--254
+\OT1/cmr/m/n/12 Johtoporras hal-lit-see tilas-toj^^?arjestelm^^?an ti-etoja er-
+il-lisell^^?a hallinta-sivulla, jossa k^^?aytt^^?aj^^?a
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 215--216
+Overfull \hbox (8.38449pt too wide) in paragraph at lines 266--267
+[]\OT1/cmr/m/n/12 Tilastotapahtuman pois-tami-nen. Jo-hto-por-taan j^^?asen poi
+s-taa tilas-tomerkinn^^?an
+ []
 
+[8]
+Overfull \hbox (5.62105pt too wide) in paragraph at lines 269--270
+[]\OT1/cmr/m/n/12 Johtoportaan j^^?asen val-it-see va-likoista ot-telun, josta 
+haluaa pois-taa tilasto
  []
 
 
-Overfull \hbox (3.68501pt too wide) in paragraph at lines 241--242
+Overfull \hbox (11.46089pt too wide) in paragraph at lines 270--271
+\OT1/cmr/m/n/12 pois-te-taan. (Sovel-lus pois-taa KAIKKI ha-lu-tun tilas-toar-t
+ikke-lin merkinn^^?at
+ []
+
+
+Overfull \hbox (37.67215pt too wide) in paragraph at lines 291--293
+\OT1/cmr/m/n/12 *Resurssitauluista pois-tami-nen voi ai-heut-taa si-ihen li-it-
+tyvien ti-eto-jen menett^^?amisen,
+ []
+
+[9]
+Overfull \hbox (13.57605pt too wide) in paragraph at lines 307--308
+\OT1/cmr/m/n/12 jotka vi-it-taa-vat pois-tet-tuun tauluriviin. Sama kos-kee ot-
+teluita, joukkueita,
+ []
+
+
+Overfull \hbox (3.68501pt too wide) in paragraph at lines 312--313
 \OT1/cmr/m/n/12 Kokemattomuus PHP:n kanssa jo-hti hie-man k^^?okk^^?o^^?on to-t
 eu-tuk-seen, jota olisi tarkoi-
  []
 
 
-Overfull \hbox (7.14755pt too wide) in paragraph at lines 241--242
+Overfull \hbox (7.14755pt too wide) in paragraph at lines 312--313
 \OT1/cmr/m/n/12 urheilu-joukkueet voisi-vat hel-posti asen-taa ko-ti-sivuilleen
  AC Hannes Statis-tics Toolin
  []
 
 
-LaTeX Warning: Empty `thebibliography' environment on input line 248.
+LaTeX Warning: Empty `thebibliography' environment on input line 319.
 
-[7] (./ach_stats_tool.aux) ) 
+[10] (./ach_stats_tool.aux) ) 
 Here is how much of TeX's memory you used:
- 3145 strings out of 495062
- 40152 string characters out of 1182644
+ 3146 strings out of 495062
+ 40159 string characters out of 1182644
  220916 words of memory out of 3000000
- 6319 multiletter control sequences out of 15000+50000
+ 6320 multiletter control sequences out of 15000+50000
  10705 words of font info for 37 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  28i,5n,40p,1129b,1818s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on ach_stats_tool.dvi (8 pages, 26544 bytes).
+Output written on ach_stats_tool.dvi (11 pages, 38168 bytes).

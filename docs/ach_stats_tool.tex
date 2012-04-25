@@ -181,40 +181,40 @@ Tietosisältökaavio näyttää ymmärrettävässä muodossa kuinka erilaiset ri
 \subsection{Käyttöliittymän rakenne} % Sub-sub-section
 AC Hannes Statistics Toolin rakenne koostuu kahdesta erilaisesta näkymästä. Toinen kaikille avoin näkymä on tilasto-widget, jonka tarkoitus on olla siirrettävä ja helposti asennettava omalle kotisivulle. Tällä hetkellä se on toteuttu prototyyppimuodossaan omana sivustonaan, mutta ehkä myöhempänä ajankohtana sen voisi liittää pluginina vaikkapa wordpress sivuilleen. Widget koostuu tilastotaulusta ja suodatinvalikosta. Tilastotaulu esittää kaikkien kantaan lisättyjen tilastoartikkelien summat pelaajakohtaisina riveinä. Suodatinvalikko tarjoaa kenelle tahansa mahdollisuuden tarkastella tämän taulun tietoja järjestettynä eri tilastoartikkelin mukaan, eri ottelukohtaisia tilastoja sekä yksittäisen pelaajan tilastoja. Kaikki mahdolliset suodatinkokoonpanot ovat otettuna huomioon. Käyttäjä voi siis listata vaikkapa FC Herkulesta vastaan tehdyt maalit ottelussa FC Baggbölea vastaan. Tässä ei sinänsä ole mitään järkeä, mutta se demonstroi tilastotyökalun voimaa monipuolisuudessa.
 
-Tilastojärjestelmän päivittäminen tapahtuu sille omistetulta sivulta, jonne on sisäänpääsy vain tietyiltä henkilöiltä. AC Hannes joukkueen tapauksessa näitä henkilöitä kuvataan sanalla johtoporras. Johtoporras on jalkapallojoukkueen osajoukko, jolla on oikeudet lisätä tilastotietoja järjestelmään. Tämä onnistuu kirjautumalla etusivulla sisään(prototyypissä username=johto password=kulta). Ilman kirjautumisen suomaa sessiodataa päivityssivu ei lataa työkalua. Päivityssivu jakautuu kahteen loogiseen osaan: tilastotapahtuma- ja resurssitaulujenhallinta osaan. Tilastotapahtumia voi lisätä järjestelmässä vain yksi kerrallaan, mutta kuitenkin usealle pelaajalle 
+Tilastojärjestelmän päivittäminen tapahtuu sille omistetulta sivulta, jonne on sisäänpääsy vain tietyillä henkilöillä. AC Hannes joukkueen tapauksessa näitä henkilöitä kuvataan sanalla johtoporras. Johtoporras on jalkapallojoukkueen osajoukko, jolla on oikeudet lisätä tilastotietoja järjestelmään. Tämä onnistuu kirjautumalla etusivulla sisään(prototyypissä username=johto password=kulta). Ilman kirjautumisen suomaa sessiodataa päivityssivu ei lataa työkalua. Päivityssivu jakautuu kahteen loogiseen osaan: tilastotapahtuma- ja resurssitaulujenhallintaan. Tilastotapahtumia voi lisätä järjestelmässä vain yksi kerrallaan, mutta kuitenkin usealle pelaajalle yhdellä kertaa.
 
 %----------------------------------------------------------------------------------------
 %	MAJOR SECTION 1
 %----------------------------------------------------------------------------------------
 
 \section{Vaatimukset ja Käyttötapaukset} % Major section
-
-
+Suunniteltaessa tilastojärjestelmän kaltaista sovellusta ovat helppokäyttöisyys ja nopeus erinomaisen tärkeitä ominaisuuksia. AC Hannes Statistics Tool täyttää nämä vaatimukset loistavasti. Intuitiivinen käyttöliittymä ja varta vasten monipuolisuutta tukeva tietokantasuunnittelu tekevät haluttujen tilastotietojen koostamisesta helppoa. Uuden tiedon lisääminenkään ei vaadi tarpeetonta toistoa ja pyrkii minimoimaan kaiken ylimääräisen tiedonsyötön. Tällä tavoin minimoidaan myös kaikenlaiset näppäilyvirheet.
 %------------------------------------------------
 
 \subsection{Vaatimukset} % Sub-section
 
-\subsubsection{Subsubsection 1} % Sub-sub-section
+\subsubsection{Pelaajan lisääminen} % Sub-sub-section
+Kantaan on voitava lisätä pelaaja, jolle voi osoittaa rajattoman määrän tilastomerkintöjä.
+
+%------------------------------------------------
+
+\subsubsection{Vastustajan lisääminen} % Sub-sub-section 
+Kantaan on voitava lisätä vastustajajoukkue, joka voidaan osoittaa rajoittamattomalle määrälle eri otteluita.
 
 
 %------------------------------------------------
 
-\subsubsection{Subsubsection 2} % Sub-sub-section
+\subsubsection{Kentän lisääminen} % Sub-sub-section
+Kantaan on voitava lisätä pelikenttä, jolla on tietty alustatyyppi ja joka voi olla pelikenttänä rajattomalla määrällä otteluita.
 
+\subsubsection{Tilastoartikkelin lisääminen}
+Kantaan on voitava lisätä mitä tahansa tilastoitavia asioita, joista voidaan ruveta pitämään välittömästi kirjaa. Näistä asioista voi olla rajaton määrä merkintöjä kenelle tahansa pelaajalle ja missä tahansa ottelussa.
 
-%------------------------------------------------
+\subsubsection{Ottelun lisääminen}
+Kantaan on voitava lisätä otteluita, joilla on oltava kenttä, päivämäärä, vastustaja, lopputulos ja vastustajan tekemien maalien määrä. Tapahtumamerkintöjä voi olla rajaton määrä ottelua kohden.
 
-\subsubsection{Subsubsection 3} % Sub-sub-section
-
-\begin{description} % Numbered list example
-
-\item[First] \hfill \\
-
-\item[Second] \hfill \\
-
-\item[Third] \hfill \\
-
-\end{description} 
+\subsubsection{Tietojen listaaminen}
+Kannasta on voitava luoda helppolukuinen taulukko, jossa selviää kuka on tehnyt, missä, ketä vastaan ja mitä. Taulukkoon voi siis generoida kokonaistilastoja tai ottelu-/kenttä-/vastustaja-/pelaajakohtaisia tilastoja sekä näiden mielivaltaisia yhdisteitä. Tulostaulukkoa on voitava järjestää halutulla tavalla.
 
 %----------------------------------------------------------------------------------------
 %	MAJOR SECTION X - TEMPLATE - UNCOMMENT AND FILL IN
@@ -237,6 +237,77 @@ Tilastojärjestelmän päivittäminen tapahtuu sille omistetulta sivulta, jonne 
 %----------------------------------------------------------------------------------------
 
 \subsection{Käyttötapaukset}
+\subsubsection{Fanit}
+Fani-käyttäjä vastaa kaikkia niitä käyttäjiä, joilla ei ole oikeuksia kirjoittaa kantaan.
+\begin{enumerate}
+\begin{item}
+Tilastomerkintöjen tarkastelu. Fani listaa tietoa pelaajista/otteluista haluamillaan parametreilla.
+	\begin{enumerate}
+		\item Fani avaa tilastosivun selaimellaan. Default-arvona tilastosivu esittää maalipörssin tämänhetkisen tilanteen
+		\item Fani syöttää hakuparametrit lomakkeeseen ja lähettää lomakkeen tilastosivulle
+		\item Sivu latautuu uudelleen ja esittää halutut tiedot
+	\end{enumerate}
+\end{item}
+\end{enumerate}
+\subsubsection{Johtoporras}
+Johtoporras hallitsee tilastojärjestelmän tietoja erillisellä hallintasivulla, jossa käyttäjä voi lisätä tilastotapahtumia eri pelaajille, lisätä otteluita ottelutauluun ja toteuttaa muita resurssitauluja ja tilastotauluja muokkaavia toimenpiteitä.
+\begin{enumerate}
+\begin{item}
+Tilastotapahtuman lisääminen. Johtoportaan jäsen lisää tilastomerkinnän valitsemalleen pelaajalle.
+	\begin{enumerate}
+		\item Johtoportaan jäsen kirjautuu järjestelmään 
+		\item Johtoportaan jäsen siirtyy tilastotapahtuman lisäämiseen tarkoitetulle hallintasivulle
+		\item Tilastomerkinnän tyyppi ja ottelu valitaan alasvetovalikoista ja pelaajat valitaan ruksimalla
+		\item Jäsen painaa Lisää-painiketta ja jokaiselle valitulle pelaajalle kirjataan haluttu tilastomerkintä.
+		\item Sivun latautuessa uudelleen antaa järjestelmä palautteen onnistuiko tilastomerkinnän lisääminen
+	\end{enumerate}
+\end{item}
+\begin{item}
+Tilastotapahtuman poistaminen. Johtoportaan jäsen poistaa tilastomerkinnän valitsemaltaan pelaajalta.
+	\begin{enumerate}
+		\item Johtoportaan jäsen kirjautuu sisään ja siirtyy hallintasivulle
+		\item Johtoportaan jäsen valitsee valikoista ottelun, josta haluaa poistaa tilasto tietoja.
+		\item Johtoportaan jäsen valitsee kaikki pelaajat, joilta halutut tapahtumat poistetaan. (Sovellus poistaa KAIKKI halutun tilastoartikkelin merkinnät ottelusta)
+		\item Johtoporras painaa Vähennä-painiketta ja sovellus antaa palautetta onnistuiko poisto.
+	\end{enumerate}
+\end{item}
+\begin{item}
+Ottelun lisääminen. Johtoporras lisää pelatun ottelun tiedot järjestelmään.
+	\begin{enumerate}
+		\item Johtoportaan jäsen kirjautuu järjestelmään ja siirtyy hallintasivulle
+		\item Jäsen valitsee valikoista kentän, vastustajan, vastustajan maalimäärän, lopputuloksen ja syöttää päivämäärän tekstikenttään
+		\item Jäsen painaa Lisää Ottelu-nappia
+		\item Sivu antaa palautetta onnistuiko ottelun lisäys
+	\end{enumerate}
+*Ottelun poistaminen tapahtuu vain ylläpitäjän toimesta, sillä huolimattomasta poistamisesta katoaa myös tilastotiedot.
+\end{item}
+\begin{item}
+Vastustajajoukkueen/kentän/tilastoartikkelin/pelaajan lisääminen. Johtoporras lisää uusia tilastoitavia asioita, ennen pelaamattomia kenttiä ja uusia vastustajia
+	\begin{enumerate}
+		\item Johtoportaan jäsen kirjautuu järjestelmään ja siirtyy hallintasivulle
+		\item Jäsen syöttää haluttuun kenttään joukkueen nimen/kentän nimen/tilastoartikkelin/pelaajan nimen(ja mahdolliset muut tiedot) ja painaa Lisää Uusi Vastustaja/Kenttä/Tilastoitava Asia/Pelaaja
+		\item Sivu antaa palautetta resurssitaulun päivittymisestä
+	\end{enumerate}
+*Resurssitauluista poistaminen voi aiheuttaa siihen liittyvien tietojen menettämisen, joten poistaminen tapahtuu ylläpidon toimesta.
+\end{item}
+\end{enumerate}
+
+\subsubsection{Ylläpito}
+Koska useat tauluista viittaavat vahvasti toisiinsa, eivät poistamisoperaatiot ole täysin yksinkertainen asia. Ottelun, tilastoartikkelin, vastustajan, kentän tai pelaajan poistaminen vaikuttaa suoraan myös muiden taulujen sisältöön. Useat poisto-operaatioista on siis parasta toteuttaa ylläpidon toimesta, jotta vahingoilta vältytään.
+\begin{enumerate}
+	\item
+		Pelaajan poistaminen
+		\begin{enumerate}
+			\item  Vaihtoehto 1: vaihtaa pelaajan 'active'-kenttä falseen, jolloin tilastot säilyvät, mutta pelaajan nimeä ei listata tilastotaulussa. Käytännössä tämä olisi voinut olla määrittelyssä ja vaatimuksissa, mutta idea tuli huomattavan myöhään projektin aikataululla.
+			\item Vaihtoehto 2: SQL-kysely kantaan, jolloin kaikki tilastotapahtumat katoavat myös. Tämä johtaa siihen että ottelutulokset eivät enää näytä oikeaa, jos tämä pelaaja on tehnyt maalin kyseisessä ottelussa.
+		\end{enumerate}
+	\item
+		Muiden resurssitaulujen rivien poistaminen
+		\begin{enumerate}
+			\item SQL-kysely kantaan. Operaatio tuhoaa myös kaikki tilastomerkinnät, jotka viittaavat poistettuun tauluriviin. Tämä koskee otteluita, joukkueita, kenttiä tai tilastoartikkeleita.
+		\end{enumerate}
+\end{enumerate}
+
 \section{Loppumietelmät ja tulevat ominaisuudet} % Major section
 Kokemattomuus PHP:n kanssa johti hieman kökköön toteutukseen, jota olisi tarkoitus kehittää hieman elegantimmaksi. Tarkoituksena olisi että yhä useammat urheilujoukkueet voisivat helposti asentaa kotisivuilleen AC Hannes Statistics Toolin voiman. Tiedon taitavampi käsittely mahdollistaisi esimerkiksi graafien tai muiden visuaalisten mallien helpon luomisen. Tulevaisuudessa AC Hannes Statistics Toolia laajennetaan myös android sovellukseksi, jolloin faneille voidaan tarjoilla reaaliaikaista tilastotietoa suoraan kentän laidalta.
 
