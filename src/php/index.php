@@ -132,53 +132,11 @@ if($_POST['opponent'] && $_POST['opponent'] != "all") {
 }
 else
     unset($_SESSION['opponent']);
-//$query = $db->prepare("SELECT player_number AS pelaajanumero, last_name AS sukunimi, first_name AS etunimi, (SELECT COUNT(*) FROM statistics_event WHERE item_id = :item_id AND player.player_id = statistics_event.player_id $match) AS stats FROM player $where ORDER BY $order $direction");
-//$query->bindParam(':item_id', $item_id);
-$items = $db->prepare("SELECT * FROM statistics_item;");
-$items->execute();
-$items_result = $items->fetchAll();
-$stat_query = "";
-$first = true;
-foreach($items_result as $item) {
-    if($first) {
-        $stat_query .= "(SELECT COUNT(*) FROM statistics_event WHERE item_id = " . $item['item_id'] . " AND player.player_id = statistics_event.player_id " . $match . ") AS " . $item['name'];
-        $first = false;
-    }
-    else
-        $stat_query .= ", (SELECT COUNT(*) FROM statistics_event WHERE item_id = " . $item['item_id'] . " AND player.player_id = statistics_event.player_id " . $match . ") AS " . $item['name'];
-}
 
-$query = $db->prepare("SELECT player_number AS pelinumero, last_name AS sukunimi, first_name AS etunimi, $stat_query FROM player $where ORDER BY $order $direction");
-//var_dump($query);
-$query->execute();
-$result = $query->fetchAll();
-//var_dump($result);
-$header = array_unique(array_keys($result[0]));
-foreach($header as $aux) {
-    if(is_numeric($aux))
-        continue;
-    print('<th>' . $aux . '</th>');
-}
-    foreach($result as $row) {
-        foreach($row as $key=>$var){
-            if(is_numeric($key)){
-                unset($row[$key]);
-            }
-        }
-    print('<tr>');
-    foreach($row as $cell) { //String keyt olisi poistettava tai jätettävä huomioimatta
-        print('<td>' . $cell .'</td>');
-    }
-    print('</tr>');
-    /*
-    print('<tr>');
-    print('<td>' . $row['player_number'] . '</td>');
-    print('<td>' . $row['last_name'] . '</td>');
-    print('<td>' . $row['first_name'] . '</td>');
-    print('<td>' . $row['stats'] . '</td>');
-    print('</tr>');*/
-}
-
+/**
+ * Creates the statistics table
+ */
+generateTable($db, $match, $where, $order, $direction);
 ?>
 </table>
 </div>
@@ -309,4 +267,51 @@ function logout() {
     //session_destroy();
 }
 
+function generateTable($db, $match, $where, $order, $direction) {
+
+    $items = $db->prepare("SELECT * FROM statistics_item;");
+    $items->execute();
+    $items_result = $items->fetchAll();
+    $stat_query = "";
+    $first = true;
+    foreach($items_result as $item) {
+        if($first) {
+            $stat_query .= "(SELECT COUNT(*) FROM statistics_event WHERE item_id = " . $item['item_id'] . " AND player.player_id = statistics_event.player_id " . $match . ") AS " . $item['name'];
+            $first = false;
+        }
+        else
+            $stat_query .= ", (SELECT COUNT(*) FROM statistics_event WHERE item_id = " . $item['item_id'] . " AND player.player_id = statistics_event.player_id " . $match . ") AS " . $item['name'];
+    }
+
+    $query = $db->prepare("SELECT player_number AS pelinumero, last_name AS sukunimi, first_name AS etunimi, $stat_query FROM player $where ORDER BY $order $direction");
+    //var_dump($query);
+    $query->execute();
+    $result = $query->fetchAll();
+    //var_dump($result);
+    $header = array_unique(array_keys($result[0]));
+    foreach($header as $aux) {
+        if(is_numeric($aux))
+            continue;
+        print('<th>' . $aux . '</th>');
+    }
+    foreach($result as $row) {
+        foreach($row as $key=>$var){
+            if(is_numeric($key)){
+                unset($row[$key]);
+            }
+        }
+        print('<tr>');
+        foreach($row as $cell) { //String keyt olisi poistettava tai jätettävä huomioimatta
+            print('<td>' . $cell .'</td>');
+        }
+        print('</tr>');
+        /*
+        print('<tr>');
+        print('<td>' . $row['player_number'] . '</td>');
+        print('<td>' . $row['last_name'] . '</td>');
+        print('<td>' . $row['first_name'] . '</td>');
+        print('<td>' . $row['stats'] . '</td>');
+        print('</tr>');*/
+    }
+}
 ?>
