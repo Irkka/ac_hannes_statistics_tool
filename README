@@ -1,5 +1,33 @@
-Just learning how to use git.
+###########################
+#AC Hannes Statistics Tool#
+###########################
+This file is a brief introduction how to get AC Hannes Statistics Tool current version up and running on any fresh installation.
 
---- maybe I'll create a statistics tool for our football club
---- hopefully the final product contains an android app
-doing some testing
+Database configuration
+======================
+The file src/php/db/config.php includes all necessary fields to configure database connection correctly for customized installation.
+
+user
+password
+hostname
+db name
+
+SQL statements for setting up the database are recorded in src/sql/
+
+run if creating/dropping tables to/from one's personal database:
+psql -f <sql_file>
+
+or the internal psql interpreter command for the currently selected db:
+\i <sql_file_path>
+
+Generating test data
+======================
+The product ships with a random statistics generator for the database. Just run src/php/db/populate.php in a browser or run the php interpreter from the commandline:
+
+php-cgi path/to/populate.php
+
+this should generate all necessary data to test drive the software.
+
+Set up web-server
+======================
+Create a symbolic link to src/php/index.php from web-server root and browse the site normally.

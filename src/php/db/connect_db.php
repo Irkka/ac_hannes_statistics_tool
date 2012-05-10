@@ -1,8 +1,7 @@
 <?php
+include('config.php');
 try {
-$user='ilkkahak';
-$pass='mestaruus'; //supply password here
-$db=new PDO('pgsql:host=localhost;dbname=ilkkahak;', $user, $pass);
+$db=new PDO('pgsql:host=' . $hostname . ';dbname=' . $db_name . ';', $user, $pass);
 }
 
 catch(PDOException $e) {
