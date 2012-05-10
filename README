@@ -3,6 +3,9 @@
 ###########################
 This file is a brief introduction how to get AC Hannes Statistics Tool current version up and running on any fresh installation.
 
+A working version can be found at:
+http://ilkkahak.users.cs.helsinki.fi/ach
+
 Database configuration
 ======================
 The file src/php/db/config.php includes all necessary fields to configure database connection correctly for customized installation.

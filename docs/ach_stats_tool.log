@@ -1,11 +1,17 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.2.20)  23 APR 2012 22:37
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2011.4.10)  26 APR 2012 14:26
 entering extended mode
  %&-line parsing enabled.
 **ach_stats_tool.tex
 (./ach_stats_tool.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, loaded.
+yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
+ak, danish, dutch, finnish, french, basque, ngerman, german, german-x-2009-06-1
+9, ngerman-x-2009-06-19, ibycus, monogreek, greek, ancientgreek, hungarian, san
+skrit, italian, latin, latvian, lithuanian, mongolian2a, mongolian, bokmal, nyn
+orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
+, estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, polish, po
+rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
 (/usr/share/texmf-texlive/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texmf-texlive/tex/latex/base/size12.clo
@@ -46,7 +52,8 @@ Package ifvtex Info: VTeX not detected.
 \Gm@odd@mp=\dimen105
 \Gm@even@mp=\dimen106
 \Gm@dimlist=\toks15
-)
+
+(/usr/share/texmf-texlive/tex/xelatex/xetexconfig/geometry.cfg))
 (/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -418,10 +425,7 @@ Type  H <return>  for immediate help.
                                                   
 l.107 ... ('nurmi', 'hiekka', 'tekonurmi', 'sisä'
                                                   , 'laivan kansi');
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
+? 
 
 ! Package inputenc Error: Keyboard character used is undefined
 (inputenc)                in inputencoding `utf8'.
@@ -432,9 +436,7 @@ Type  H <return>  for immediate help.
                                                   
 l.107 ... ('nurmi', 'hiekka', 'tekonurmi', 'sisä'
                                                   , 'laivan kansi');
-You need to provide a definition with \DeclareInputText 
-or \DeclareInputMath before using this key.
-
+? 
 [2]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 109.
 
@@ -467,10 +469,7 @@ Type  H <return>  for immediate help.
 l.119 ...--Kaikki non-active playerit esitetään 
                                                   tilastosivuilla yhtenä pe...
 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
+? 
 
 ! Package inputenc Error: Keyboard character used is undefined
 (inputenc)                in inputencoding `utf8'.
@@ -482,9 +481,7 @@ Type  H <return>  for immediate help.
 l.119 ...--Kaikki non-active playerit esitetään 
                                                   tilastosivuilla yhtenä pe...
 
-You need to provide a definition with \DeclareInputText 
-or \DeclareInputMath before using this key.
-
+? 
 
 ! Package inputenc Error: Unicode char \u8:�\expandafter not set up for use wit
 h LaTeX.
@@ -496,10 +493,7 @@ Type  H <return>  for immediate help.
 l.119 ...--Kaikki non-active playerit esitetään 
                                                   tilastosivuilla yhtenä pe...
 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
+? 
 
 ! Package inputenc Error: Keyboard character used is undefined
 (inputenc)                in inputencoding `utf8'.
@@ -511,9 +505,7 @@ Type  H <return>  for immediate help.
 l.119 ...--Kaikki non-active playerit esitetään 
                                                   tilastosivuilla yhtenä pe...
 
-You need to provide a definition with \DeclareInputText 
-or \DeclareInputMath before using this key.
-
+? 
 
 ! Package inputenc Error: Unicode char \u8:�\expandafter not set up for use wit
 h LaTeX.
@@ -524,10 +516,7 @@ Type  H <return>  for immediate help.
                                                   
 l.119 ...erit esitetään tilastosivuilla yhtenä 
                                                   pelaajana 'muut'
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
+? 
 
 ! Package inputenc Error: Keyboard character used is undefined
 (inputenc)                in inputencoding `utf8'.
@@ -538,9 +527,7 @@ Type  H <return>  for immediate help.
                                                   
 l.119 ...erit esitetään tilastosivuilla yhtenä 
                                                   pelaajana 'muut'
-You need to provide a definition with \DeclareInputText 
-or \DeclareInputMath before using this key.
-
+? 
 [3]
 LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <10> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 150.
@@ -556,10 +543,7 @@ Type  H <return>  for immediate help.
 l.151 ...istetaan match-taulusta, poistuvat myös 
                                                   kaikki otteluun liitetyt t...
 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
+? 
 
 ! Package inputenc Error: Keyboard character used is undefined
 (inputenc)                in inputencoding `utf8'.
@@ -571,9 +555,7 @@ Type  H <return>  for immediate help.
 l.151 ...istetaan match-taulusta, poistuvat myös 
                                                   kaikki otteluun liitetyt t...
 
-You need to provide a definition with \DeclareInputText 
-or \DeclareInputMath before using this key.
-
+? 
 
 ! Package inputenc Error: Unicode char \u8:�\expandafter not set up for use wit
 h LaTeX.
@@ -584,10 +566,7 @@ Type  H <return>  for immediate help.
                                                   
 l.151 ...aikki otteluun liitetyt tilastomerkinnät
                                                   
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
+? 
 
 ! Package inputenc Error: Keyboard character used is undefined
 (inputenc)                in inputencoding `utf8'.
@@ -598,9 +577,7 @@ Type  H <return>  for immediate help.
                                                   
 l.151 ...aikki otteluun liitetyt tilastomerkinnät
                                                   
-You need to provide a definition with \DeclareInputText 
-or \DeclareInputMath before using this key.
-
+? 
 
 ! Package inputenc Error: Unicode char \u8:�\expandafter not set up for use wit
 h LaTeX.
@@ -611,10 +588,7 @@ Type  H <return>  for immediate help.
                                                   
 l.152 ...etaan kaikki vastaavat tilastomerkinnät 
                                                   tuolle itemille
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
+? 
 
 ! Package inputenc Error: Keyboard character used is undefined
 (inputenc)                in inputencoding `utf8'.
@@ -625,9 +599,7 @@ Type  H <return>  for immediate help.
                                                   
 l.152 ...etaan kaikki vastaavat tilastomerkinnät 
                                                   tuolle itemille
-You need to provide a definition with \DeclareInputText 
-or \DeclareInputMath before using this key.
-
+? 
 
 Overfull \hbox (3.9586pt too wide) in paragraph at lines 171--172
 \OT1/cmr/m/n/12 pelaa-jien, ot-telu-iden tai tilas-toar-tikke-lien poisto tapah
@@ -640,21 +612,13 @@ Overfull \hbox (3.9586pt too wide) in paragraph at lines 171--172
                 $
 l.174 	\begin{left}
                    
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
+? 
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
 l.175 		\includegraphics
                         [width=\textwidth]{kaavio.eps}
-I was expecting to see something like `(' or `\{' or
-`\}' here. If you typed, e.g., `{' instead of `\{', you
-should probably delete the `{' by typing `1' now, so that
-braces don't get unbalanced. Otherwise just proceed.
-Acceptable delimiters are characters whose \delcode is
-nonnegative, or you can use `\delimiter <delimiter code>'.
-
+? 
 File: kaavio.eps Graphic file (type eps)
 <kaavio.eps>
 ! Missing \right. inserted.
@@ -662,23 +626,13 @@ File: kaavio.eps Graphic file (type eps)
                 \right .
 l.176 	\end{left}
                  
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
+? 
 ! Missing $ inserted.
 <inserted text> 
                 $
 l.176 	\end{left}
                  
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
+? 
 
 Overfull \hbox (2.4pt too wide) in paragraph at lines 174--177
 []$[]$ 
@@ -733,9 +687,9 @@ tyvien ti-eto-jen menett^^?amisen,
  []
 
 [9]
-Overfull \hbox (13.57605pt too wide) in paragraph at lines 307--308
-\OT1/cmr/m/n/12 jotka vi-it-taa-vat pois-tet-tuun tauluriviin. Sama kos-kee ot-
-teluita, joukkueita,
+Overfull \hbox (15.53436pt too wide) in paragraph at lines 307--308
+\OT1/cmr/m/n/12 jotka vi-it-taa-vat pois-tet-tuun tauluriviin. T^^?am^^?a kos-k
+ee ot-teluita, joukkueita,
  []
 
 
@@ -755,12 +709,12 @@ LaTeX Warning: Empty `thebibliography' environment on input line 319.
 
 [10] (./ach_stats_tool.aux) ) 
 Here is how much of TeX's memory you used:
- 3146 strings out of 495062
- 40159 string characters out of 1182644
- 220916 words of memory out of 3000000
- 6320 multiletter control sequences out of 15000+50000
+ 3149 strings out of 493849
+ 40330 string characters out of 1152846
+ 221896 words of memory out of 3000000
+ 6419 multiletter control sequences out of 15000+50000
  10705 words of font info for 37 fonts, out of 3000000 for 9000
- 28 hyphenation exceptions out of 8191
+ 714 hyphenation exceptions out of 8191
  28i,5n,40p,1129b,1818s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on ach_stats_tool.dvi (11 pages, 38168 bytes).
+Output written on ach_stats_tool.dvi (11 pages, 38176 bytes).
