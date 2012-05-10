@@ -34,3 +34,28 @@ this should generate all necessary data to test drive the software.
 Set up web-server
 ======================
 Create a symbolic link to src/php/index.php from web-server root and browse the site normally.
+
+===============================================
+Suomenkieliset käyttöohjeet:
+===============================================
+
+Etusivu
+=======
+Sovelluksen etusivuna toimii generoitu näkymä kaikkien tilastojen yhteenvedosta pelattujen ottelujen mukaan järjestettynä. Oikealla puolella on suodatinpaneeli, jolla esitettyjä tietoja voi ristiviitata mielivaltaisella tavalla, esim. vastustajan ja pelikentän mukaan, tai vain tietyn ottelun tilastoja. Huomioitavaa on, että myös järjenvastaiset viitteet voivat olla mahdollisia. Tilastot tiettyä vastustajajoukkuetta vastaan ottelussa, jossa he eivät edes olleet pelaamassa tai muuta vastaavaa. Tilastojen esitysjärjestystä voidaan muuttaa ruksimalla 'Nouseva järjestys'.
+
+Kirjautuminen järjestelmään tapahtuu vasemmasta yläkulmasta.
+
+username = johto
+password = kulta
+
+Kirjautumisen jälkeen johtoportaalle avautuu update-linkki, jota seuraamalla pääsee hallintajärjestelmään.
+
+Oikealla puolella hallintajärjestelmä on tilastoresurssienhallinta.
+
+Tilastokappale = tilastoitava asia(maali, syöttö, loukkaantuminen, mitä tahansa)
+
+Resursseja voidaan käyttää vapaasti missä tahansa uudessa tilastomerkinnässä ja niiden lisäämiselle ei ole rajoitetta. Vain tiedon tyypeille suoritetaan tarkastukset ja järjestelmä antaa virheilmoituksen, jos tietoa ei jostain syystä onnistuttu lisäämään, esim. sama nimi.
+
+Vasemmalla puolen hallintasivua on tilastopäivitystyökalu. Johtoportaan jäsen voi valita mielivaltaisen määrän pelaajia joille lisätään valittu merkintä valittuun otteluun. Merkintöjä voi lisätä kuitenkin vain yksi kerrallaan per pelaaja. 'Poista valitut merkinnät' poistaa KAIKKI kyseisen tilastoartikkelin merkinnät ottelusta valittujen pelaajien kohdalta. Jos tämä halutaan peruuttaa, on merkinnät lisättävä uudelleen yksitellen.
+
+Muutetut tilastot näkyvät päivitettyinä etusivulla ja niitä voidaan suodattaa normaalisti.

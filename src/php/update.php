@@ -219,7 +219,7 @@ if($_POST['commit_match']) {
         ?>
     </select>
 	<input type="submit" name="add" value="Lisää"/>
-	<input type="submit" name="delete" value="Vähennä" />
+	<input type="submit" name="delete" value="Poista merkinnät" />
 </form>
 </div>
 <div id="dbmod">
